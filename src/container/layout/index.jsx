@@ -1,5 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Suggestions from "../../components/Suggestions";
+import PropTypes from "prop-types";
 
 const Layout = () => {
   useSelector((state) => console.log({ state: state.isUserVisited }));
@@ -12,4 +14,6 @@ const Layout = () => {
     </div>
   );
 };
+Layout.propTypes = {};
+
 export default Layout;

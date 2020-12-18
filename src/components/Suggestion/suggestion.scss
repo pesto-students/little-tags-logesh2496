@@ -1,0 +1,21 @@
+.suggestion {
+  padding: 10px;
+  position: relative;
+  width: 250px;
+  height: 180px;
+  .suggestion-footer {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    border-bottom-left-radius: 21px;
+    border-bottom-right-radius: 21px;
+
+    opacity: 0.41;
+    background-image: linear-gradient(
+      79deg,
+      #000000 3%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
+}
