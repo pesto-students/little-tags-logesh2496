@@ -7,7 +7,13 @@ const isUserVisited = (state = initialState.isUserVisited, action) => {
     }
     return state;
 }
-
+const userData = (state, action) => {
+    if (action.type === 'USER_LOGIN') {
+        return action.value;
+    }
+    return {};
+}
 export default combineReducers({
-    isUserVisited
+    isUserVisited,
+    userData
 });
