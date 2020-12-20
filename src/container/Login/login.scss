@@ -8,10 +8,36 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 6px;
-}
-.buttons-container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  .buttons-container {
+    .login-header {
+      color: black;
+      font-weight: 500;
+      margin-top: auto;
+      font-size: 2em;
+    }
+    .helper {
+      color: #000000;
+      margin-bottom: auto;
+      font-size: 1.2em;
+    }
+    button {
+      margin-bottom: auto;
+      background: black;
+      color: white;
+      border-radius: 6px;
+      width: 40%;
+      height: 15%;
+      cursor: pointer;
+    }
+    .google-btn {
+      margin-bottom: unset;
+    }
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 }

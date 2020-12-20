@@ -20,8 +20,12 @@ const Login = () => {
     <Modal>
       <div className="login">
         <div className="buttons-container">
-          <button onClick={onGoogleAuth}>Google</button>
-          <button>Facebook</button>
+          <div className="login-header">Log in / Sign up</div>
+          <div className="helper">using your</div>
+          <button className="google-btn" onClick={onGoogleAuth}>
+            Google Account
+          </button>
+          <button>Facebook Account</button>
         </div>
       </div>
     </Modal>
