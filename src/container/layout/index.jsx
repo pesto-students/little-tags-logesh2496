@@ -6,18 +6,17 @@ import Login from "../Login";
 import Menu from "../Menu";
 
 const Layout = () => {
-  useSelector((state) => console.log({ state: state.isUserVisited }));
+  const isUserLoggedIn = useSelector((state) => state.isUserLoggedIn);
 
-  const isMenuOpen = useSelector((state) =>
-    console.log({ state: state.isUserVisited })
-  );
+  const menu = useSelector((state) => state.menu);
   return (
     <div className="layout">
       <header className="App-header">
         <h2>Welcome to little-tags.</h2>
         Website is under construction, please come back later.
-        {/* <Login /> */}
-        {isMenuOpen && <Menu />}
+        {!isUserLoggedIn && <Login />}
+        {(menu.isOpen || isUserLoggedIn) && <Menu />}
+        {(menu.isOpen || isUserLoggedIn) && <Suggestions />}
       </header>
     </div>
   );

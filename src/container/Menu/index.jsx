@@ -4,7 +4,7 @@ import Modal from "../../components/Modal";
 import "./menu.scss";
 
 const Menu = () => {
-  const { name } = useSelector((state) => state.userData);
+  const { name } = useSelector((state) => state.user);
   return (
     <Modal>
       <div className="menu-wrapper">
