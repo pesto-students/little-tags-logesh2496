@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "../../components/Modal";
 import "./login.scss";
 import auth from "../../db/auth";
-import { setLogInUserInfo } from "../../actions";
+import { setAsUserLoggedIn, setLogInUserInfo } from "../../actions";
 import { useDispatch } from "react-redux";
 
 const { googleAuth } = auth();
@@ -10,6 +10,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const onComplete = (data) => {
+    dispatch(setAsUserLoggedIn());
     dispatch(setLogInUserInfo(data));
     alert(`Welcome ${data.name} to little-tags!`);
   };
