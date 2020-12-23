@@ -1,0 +1,25 @@
+.address-form {
+  .row {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin: 15px;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      label {
+        font-size: 12px;
+      }
+      input {
+        width: 300px;
+        height: 40px;
+      }
+    }
+  }
+  .submit-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+}
