@@ -22,19 +22,12 @@
       margin-bottom: auto;
       font-size: 1.2em;
     }
-    button {
-      margin-bottom: auto;
-      background: black;
-      color: white;
-      border-radius: 6px;
-      width: 40%;
-      height: 15%;
-      cursor: pointer;
-    }
     .google-btn {
       margin-bottom: unset;
     }
-
+    .facebook-btn {
+      margin-bottom: auto;
+    }
     height: 100%;
     display: flex;
     align-items: center;

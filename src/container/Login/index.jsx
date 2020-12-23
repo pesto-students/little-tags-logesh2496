@@ -4,6 +4,7 @@ import "./login.scss";
 import auth from "../../db/auth";
 import { setAsUserLoggedIn, setLogInUserInfo } from "../../actions";
 import { useDispatch } from "react-redux";
+import Button from "../../components/Button";
 
 const { googleAuth } = auth();
 const Login = () => {
@@ -23,10 +24,10 @@ const Login = () => {
         <div className="buttons-container">
           <div className="login-header">Log in / Sign up</div>
           <div className="helper">using your</div>
-          <button className="google-btn" onClick={onGoogleAuth}>
+          <Button className="google-btn" onClick={onGoogleAuth}>
             Google Account
-          </button>
-          <button>Facebook Account</button>
+          </Button>
+          <Button className="facebook-btn">Facebook Account</Button>
         </div>
       </div>
     </Modal>

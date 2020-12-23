@@ -4,6 +4,8 @@ import Suggestions from "../../components/Suggestions";
 import PropTypes from "prop-types";
 import Login from "../Login";
 import Menu from "../Menu";
+import DeliverTo from "../DeliverTo";
+import "./layout.scss";
 
 const Layout = () => {
   const isUserLoggedIn = useSelector((state) => state.isUserLoggedIn);
@@ -11,13 +13,12 @@ const Layout = () => {
   const menu = useSelector((state) => state.menu);
   return (
     <div className="layout">
-      <header className="App-header">
-        <h2>Welcome to little-tags.</h2>
-        Website is under construction, please come back later.
-        {!isUserLoggedIn && <Login />}
-        {(menu.isOpen || isUserLoggedIn) && <Menu />}
-        {(menu.isOpen || isUserLoggedIn) && <Suggestions />}
-      </header>
+      {/* <h2>Welcome to little-tags.</h2>
+        Website is under construction, please come back later. */}
+      {/* <DeliverTo /> */}
+      {!isUserLoggedIn && <Login />}
+      {/* {(menu.isOpen || isUserLoggedIn) && <Menu />}
+        {(menu.isOpen || isUserLoggedIn) && <Suggestions />} */}
     </div>
   );
 };
