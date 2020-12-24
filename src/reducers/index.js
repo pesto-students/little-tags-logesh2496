@@ -19,8 +19,15 @@ const menu = (state, action) => {
     }
     return { isOpen: false };
 }
+const address = (state, action) => {
+    if (action.type === 'SET_ADDRESS') {
+        return action.value;
+    }
+    return [];
+}
 export default combineReducers({
     isUserLoggedIn,
     menu,
     user,
+    address
 });

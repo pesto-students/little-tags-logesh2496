@@ -13,9 +13,9 @@ import db from '.';
 
 export default () => {
     db();
-    const ref = firebase.database().ref("users");
+    const usersRef = firebase.database().ref("users");
 
-    ref.once("value")
+    usersRef.once("value")
         .then(function (snapshot) {
             var key = snapshot.key;
             var data = snapshot.val();
@@ -27,22 +27,28 @@ export default () => {
             var provider = new firebase.auth.GoogleAuthProvider();
             provider.addScope('profile');
             provider.addScope('email');
-            firebase.auth().signInWithPopup(provider).then(result => {
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).signInWithPopup(provider).then(result => {
                 // This gives you a Google Access Token.
                 var token = result.credential.accessToken;
                 // The signed-in user info.
                 var { email, displayName, photoURL, phoneNumber, uid } = result.user;
                 //TODO check existing user
-                ref.update({
-                    [uid]: {
-                        displayName,
-                        email,
-                        photoURL,
-                        phoneNumber,
-                        cart: [],
-                        orders: [],
-                    }
-                });
+                if (usersRef.exists() && usersRef.child(uid).exists()) {
+                    const { cart, orders, address } = usersRef.child(uid).val();
+                    //TODO push to redux
+                } else {
+                    usersRef.update({
+                        [uid]: {
+                            displayName,
+                            email,
+                            photoURL,
+                            phoneNumber,
+                            cart: null,
+                            orders: null,
+                            address: null
+                        }
+                    });
+                }
                 onComplete({ id: uid, name: displayName, email, phoneNumber, });
             }).catch(e => {
                 alert('There is some problem at the server, please try again!');

@@ -14,3 +14,7 @@ export const openMenu = (value) => ({
     type: 'OPEN_MENU',
     value
 });
+export const setAddress = (value) => ({
+    type: 'SET_ADDRESS',
+    value
+});
