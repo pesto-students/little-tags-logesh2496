@@ -15,44 +15,44 @@ export default () => {
     db();
     const usersRef = firebase.database().ref("users");
 
-    usersRef.once("value")
-        .then(function (snapshot) {
-            var key = snapshot.key;
-            var data = snapshot.val();
-            console.log({ key, data })
-        });
     return {
+        isUserAlreadyLoggedIn: () => !!firebase.auth().currentUser,
         googleAuth: (onComplete) => {
             // Using a popup.
             var provider = new firebase.auth.GoogleAuthProvider();
             provider.addScope('profile');
             provider.addScope('email');
-            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).signInWithPopup(provider).then(result => {
-                // This gives you a Google Access Token.
-                var token = result.credential.accessToken;
-                // The signed-in user info.
-                var { email, displayName, photoURL, phoneNumber, uid } = result.user;
-                //TODO check existing user
-                if (usersRef.exists() && usersRef.child(uid).exists()) {
-                    const { cart, orders, address } = usersRef.child(uid).val();
-                    //TODO push to redux
-                } else {
-                    usersRef.update({
-                        [uid]: {
-                            displayName,
-                            email,
-                            photoURL,
-                            phoneNumber,
-                            cart: null,
-                            orders: null,
-                            address: null
-                        }
-                    });
-                }
-                onComplete({ id: uid, name: displayName, email, phoneNumber, });
-            }).catch(e => {
-                alert('There is some problem at the server, please try again!');
-                console.log(e);
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+                firebase.auth().signInWithPopup(provider).then(result => {
+                    // This gives you a Google Access Token.
+                    var token = result.credential.accessToken;
+                    // The signed-in user info.
+                    var { email, displayName, photoURL, phoneNumber, uid } = result.user;
+                    //TODO check existing user
+                    usersRef.once("value")
+                        .then(function (snapshot) {
+                            if (snapshot.exists() && snapshot.child(uid).exists()) {
+                                const { cart, orders, address } = snapshot.child(uid).val();
+                                //TODO push to redux
+                            } else {
+                                snapshot.update({
+                                    [uid]: {
+                                        displayName,
+                                        email,
+                                        photoURL,
+                                        phoneNumber,
+                                        cart: null,
+                                        orders: null,
+                                        address: null
+                                    }
+                                });
+                            }
+                            onComplete({ id: uid, name: displayName, email, phoneNumber, });
+                        });
+                }).catch(e => {
+                    alert('There is some problem at the server, please try again!');
+                    console.log(e);
+                });
             });
         },
         facebookAuth: () => {

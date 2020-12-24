@@ -1,4 +1,4 @@
 const initialState = {
-    isUserVisited: false
+    isUserLoggedIn: false
 }
 export default initialState;

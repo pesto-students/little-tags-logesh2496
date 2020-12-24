@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import initialState from '../data/initialState.js';
 
-const isUserLoggedIn = (state = initialState.isUserVisited, action) => {
+const isUserLoggedIn = (state = initialState.isUserLoggedIn, action) => {
     if (action.type === 'USER_LOGGED') {
         return action.value;
     }
