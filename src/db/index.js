@@ -18,9 +18,17 @@ const firebaseConfig = {
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
-export default () => {
+const db = () => {
     // Initialize Firebase
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
+    return {
+        updateDb: async (id, { prop, value }, onComplete) => {
+            const usersRef = firebase.database().ref(`users/${id}/${prop}`);
+            usersRef.update(value, onComplete);
+        }
+    }
 }
+
+export default db;

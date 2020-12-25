@@ -1,11 +1,13 @@
 import './App.scss';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import Layout from './container/layout';
+import middleware from "./middleware";
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  rootReducer, window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
+  rootReducer, composeEnhancers(middleware)
 );
 
 function App() {
