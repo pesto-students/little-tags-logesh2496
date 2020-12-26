@@ -21,9 +21,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {/* <div>
+      <div>
         <InDemand />
-      </div> */}
+      </div>
     </div>
   );
 };

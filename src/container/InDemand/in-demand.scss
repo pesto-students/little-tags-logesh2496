@@ -1,3 +1,22 @@
-.in-demand {
-  display: flex;
+.demand-wrapper {
+  .header {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+  }
+  .in-demand {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+
+    .first {
+      width: 360px;
+      height: 250px;
+    }
+    .second,
+    .third {
+      width: 250px;
+      height: 500px;
+    }
+  }
 }

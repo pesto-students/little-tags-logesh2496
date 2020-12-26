@@ -4,30 +4,18 @@ import "./in-demand.scss";
 
 const InDemand = () => {
   return (
-    <div>
-      <div>Most in Demand</div>
-      <div className="in-demand" style={{ display: "flex" }}>
-        <div>
-          <Suggestion
-            url="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-            label="T Shirt"
-          />
-          <Suggestion
-            url="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-            label="T Shirt"
-          />
+    <div className="demand-wrapper">
+      <div className="header">Most in Demand</div>
+      <div className="in-demand">
+        <div className="first">
+          <Suggestion url="/images/tshirts.jpg" label="T Shirt" />
+          <Suggestion url="/images/jeans.jpg" label="Jeans" />
         </div>
-        <div style={{ height: "200px" }}>
-          <Suggestion
-            url="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-            label="T Shirt"
-          />
+        <div className="second">
+          <Suggestion url="/images/bagpack.jpeg" label="Backpack" />
         </div>
-        <div>
-          <Suggestion
-            url="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-            label="T Shirt"
-          />
+        <div className="third">
+          <Suggestion url="/images/necklace.jpg" label="Charm necklace" />
         </div>
       </div>
     </div>
