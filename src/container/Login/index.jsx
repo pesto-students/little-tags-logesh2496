@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import Button from "../../components/Button";
 
 const { googleAuth } = auth();
+
 const Login = () => {
   const dispatch = useDispatch();
 
@@ -18,6 +19,7 @@ const Login = () => {
   const onGoogleAuth = () => {
     googleAuth(onComplete);
   };
+
   return (
     <Modal>
       <div className="login">

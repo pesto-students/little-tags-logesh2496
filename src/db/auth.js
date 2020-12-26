@@ -8,22 +8,20 @@ import "firebase/firestore";
 // Add the Firebase products that you want to use
 import "firebase/auth";
 import "firebase/database";
+import app from "./base";
 
-import db from '.';
 
-export default () => {
-    db();
+const auth = () => {
     const usersRef = firebase.database().ref("users");
 
     return {
-        isUserAlreadyLoggedIn: () => !!firebase.auth().currentUser,
         googleAuth: (onComplete) => {
             // Using a popup.
             var provider = new firebase.auth.GoogleAuthProvider();
             provider.addScope('profile');
             provider.addScope('email');
-            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
-                firebase.auth().signInWithPopup(provider).then(result => {
+            app.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+                app.auth().signInWithPopup(provider).then(result => {
                     // This gives you a Google Access Token.
                     var token = result.credential.accessToken;
                     // The signed-in user info.
@@ -64,4 +62,5 @@ export default () => {
 
         }
     }
-}
+};
+export default auth;

@@ -9,16 +9,12 @@ import "./layout.scss";
 
 const Layout = () => {
   const isUserLoggedIn = useSelector((state) => state.isUserLoggedIn);
-
   const menu = useSelector((state) => state.menu);
+
   return (
     <div className="layout">
-      {/* <h2>Welcome to little-tags.</h2>
-        Website is under construction, please come back later. */}
-      {/* <DeliverTo /> */}
-      {!isUserLoggedIn && <Login />}
-      {/* {(menu.isOpen || isUserLoggedIn) && <Menu />}
-        {(menu.isOpen || isUserLoggedIn) && <Suggestions />} */}
+      <h2>Welcome to little-tags.</h2>
+      Website is under construction, please come back later.
     </div>
   );
 };
