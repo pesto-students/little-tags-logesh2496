@@ -20,7 +20,7 @@ const Header = () => {
         <img src="/icons/person.svg" />
         Logesh
       </div>
-      <img src="/icons/shopping_cart.svg" />
+      <img className="cart" src="/icons/shopping_cart.svg" />
     </div>
   );
 };
