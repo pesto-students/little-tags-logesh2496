@@ -11,6 +11,7 @@ const PrivateRoute = ({ history }) => {
 
   useEffect(() => {
     app.auth().onAuthStateChanged((e) => {
+      setIsPending(false);
       setUser(e);
       if (e) {
         dispatch(setAsUserLoggedIn(true));

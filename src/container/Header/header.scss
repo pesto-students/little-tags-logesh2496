@@ -1,8 +1,16 @@
+.header-area {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
 .home-header {
   display: flex;
   height: 50px;
   align-items: center;
   font-size: 22px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
   strong {
     margin-left: 30px;
   }
