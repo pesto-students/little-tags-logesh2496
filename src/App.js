@@ -4,6 +4,8 @@ import rootReducer from './reducers';
 import { createStore, applyMiddleware, compose } from 'redux';
 import Layout from './container/layout';
 import middleware from "./middleware";
+import Routes from './routes';
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
@@ -14,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <Layout />
+        <Routes />
       </Provider>
     </div>
   );
