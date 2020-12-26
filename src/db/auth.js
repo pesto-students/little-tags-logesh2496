@@ -31,11 +31,16 @@ export default () => {
                     //TODO check existing user
                     usersRef.once("value")
                         .then(function (snapshot) {
+                            let userCart = [];
+                            let userOrders = [];
+                            let userAddress = [];
                             if (snapshot.exists() && snapshot.child(uid).exists()) {
                                 const { cart, orders, address } = snapshot.child(uid).val();
-                                //TODO push to redux
+                                userCart = cart;
+                                userOrders = orders;
+                                userAddress = address;
                             } else {
-                                snapshot.update({
+                                usersRef.update({
                                     [uid]: {
                                         displayName,
                                         email,
@@ -47,7 +52,7 @@ export default () => {
                                     }
                                 });
                             }
-                            onComplete({ id: uid, name: displayName, email, phoneNumber, });
+                            onComplete({ id: uid, name: displayName, email, phoneNumber, cart: userCart, orders: userOrders, address: userAddress });
                         });
                 }).catch(e => {
                     alert('There is some problem at the server, please try again!');

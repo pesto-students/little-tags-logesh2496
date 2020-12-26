@@ -6,9 +6,9 @@ export const setAsUserLoggedOut = () => ({
     type: 'USER_LOGGED',
     value: false
 });
-export const setLogInUserInfo = (data) => ({
+export const setLogInUserInfo = (value) => ({
     type: 'USER_LOGIN',
-    value: data
+    value
 });
 export const openMenu = (value) => ({
     type: 'OPEN_MENU',

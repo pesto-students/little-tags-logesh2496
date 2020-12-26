@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Button";
 import "./address-form.scss";
 import PropTypes from "prop-types";
+import { getFromForm } from "../../helper/utils";
 
 const AddressForm = ({ handleAddInformation }) => {
   const formSubmit = (e) => {
@@ -9,19 +10,27 @@ const AddressForm = ({ handleAddInformation }) => {
     if (form.checkValidity()) {
       e.preventDefault();
       const formValues = form.elements;
+      const {
+        firstName,
+        lastName,
+        addressOne,
+        addressTwo,
+        state,
+        pincode,
+        emailId,
+        mobileNo,
+      } = getFromForm(formValues);
+
       const formObj = {
-        firstName: formValues["fName"].value,
-        LastName: formValues["lName"].value,
-        name: `${formValues["fName"].value} ${formValues["lName"].value}`,
-        addressLineOne: formValues["addressOne"].value,
-        addressLineTwo: formValues["addressTwo"].value,
-        state: formValues["state"].value,
-        address: `${formValues["addressOne"].value} ${
-          formValues["addressTwo"].value
-        } ${formValues["state"].value || ""} ${formValues["pincode"].value}`,
-        email: formValues["emailId"].value,
-        mobileNo: formValues["mobileNo"].value,
-        pincode: formValues["pincode"].value,
+        firstName,
+        lastName,
+        fullName: `${firstName} ${lastName}`,
+        addressOne,
+        addressTwo,
+        state,
+        email: emailId,
+        mobileNo,
+        pincode,
       };
       handleAddInformation(formObj);
     }
@@ -33,7 +42,7 @@ const AddressForm = ({ handleAddInformation }) => {
           <div className="row">
             <div className="column">
               <label>First Name</label>
-              <input name="fName" required></input>
+              <input name="firstName" required></input>
             </div>
             <div className="column">
               <label>Address line 1</label>
@@ -43,7 +52,7 @@ const AddressForm = ({ handleAddInformation }) => {
           <div className="row">
             <div className="column">
               <label>Last Name</label>
-              <input name="lName"></input>
+              <input name="lastName"></input>
             </div>
             <div className="column">
               <label>Address line 2</label>
