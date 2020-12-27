@@ -6,7 +6,7 @@ import app from "../db/base";
 
 const PrivateRoute = ({ history }) => {
   const [user, setUser] = useState(null);
-  const [isPending, setIsPending] = useState(true);
+  const [isLoginWindow, setIsLoginWindow] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,6 +15,7 @@ const PrivateRoute = ({ history }) => {
       if (e) {
         dispatch(setAsUserLoggedIn(true));
       } else {
+        setIsLoginWindow(true);
         dispatch(setAsUserLoggedIn(false));
       }
     });
@@ -22,7 +23,7 @@ const PrivateRoute = ({ history }) => {
 
   if (user) {
     return <Redirect to="/home" />;
-  } else if (!isPending) return <Redirect to="/login" />;
+  } else if (isLoginWindow) return <Redirect to="/login" />;
   return <div>Loading...</div>;
 };
 export default PrivateRoute;

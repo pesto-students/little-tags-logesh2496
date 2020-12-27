@@ -1,0 +1,28 @@
+.product-slide {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 60px;
+  align-items: center;
+  min-height: 150px;
+  margin: 10px 0;
+
+  border-radius: 10px;
+  box-shadow: 0 0 8px 0 rgba(40, 44, 181, 0.16);
+  &:hover {
+    box-shadow: 0 0 16px 0 rgba(40, 44, 181, 0.16);
+    cursor: pointer;
+  }
+  margin: 20px;
+  .image {
+    width: 100px;
+  }
+  .title {
+    margin-left: auto;
+  }
+  .price {
+    margin-left: auto;
+    &::before {
+      content: "$ ";
+    }
+  }
+}
