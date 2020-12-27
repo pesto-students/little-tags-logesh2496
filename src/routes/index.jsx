@@ -5,6 +5,7 @@ import ProductList from "../container/ProductList";
 import PrivateRoute from "./privateRoute";
 import { useSelector } from "react-redux";
 import Menu from "../container/Menu";
+import DeliverTo from "../container/DeliverTo";
 
 const Routes = () => {
   const { isOpen } = useSelector((state) => state.menu);
@@ -17,6 +18,7 @@ const Routes = () => {
           <Route exact path="/home" component={Layout}></Route>
           <Route path={`/home/:searchQuery`} component={ProductList} />
           <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/address" component={DeliverTo}></Route>
           <Route exact path="/orders" component={Layout}></Route>
           <Route exact path="/cart" component={Layout}></Route>
           <Route exact default component={Layout}></Route>
