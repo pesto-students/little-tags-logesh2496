@@ -1,3 +1,17 @@
-.product-list {
-  margin-top: 50px;
+.list-wrapper {
+  .home-header {
+    background: black !important;
+  }
+  .product-list {
+    margin-top: 60px;
+
+    .list-header {
+      font-weight: 600;
+      text-align: center;
+      font-size: 28px;
+    }
+    .product-detail {
+      text-align: center;
+    }
+  }
 }
