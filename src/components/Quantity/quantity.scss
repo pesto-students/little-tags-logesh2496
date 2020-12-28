@@ -1,0 +1,15 @@
+.quantity-cal {
+  display: flex;
+  width: 90px;
+  margin-bottom: 10px;
+  border: 1.3px solid;
+  border-radius: 6px;
+  :not(:last-child) {
+    border-right: 1.3px solid;
+  }
+  div {
+    width: 30px;
+    cursor: pointer;
+    text-align: center;
+  }
+}
