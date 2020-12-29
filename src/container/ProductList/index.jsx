@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import UseRouterClass from "../../hooks/useRouterClass";
 import Header from "../Header";
 import ProductSlide from "../ProductSlide";
 import "./product-list.scss";
@@ -20,6 +21,8 @@ const ProductList = () => {
   const { searchQuery } = useParams();
   const [products, setProducts] = useState([]);
 
+  UseRouterClass();
+
   useEffect(() => {
     document.firstElementChild.scrollTop = 0;
     const category = getCategoryFromQuery(searchQuery);
@@ -32,7 +35,6 @@ const ProductList = () => {
 
   return (
     <div className="list-wrapper">
-      <Header />
       <div className="product-list">
         <div className="list-header">{searchQuery}</div>
         <div className="product-detail">
