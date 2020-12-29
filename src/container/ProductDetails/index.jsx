@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Carousel from "../../components/Carousel";
 import Quantity from "../../components/Quantity";
 import SizeList from "../../components/SizeList";
+import Suggestions from "../../components/Suggestions";
 import UseRouterClass from "../../hooks/useRouterClass";
 import Header from "../Header";
 import "./product-details.scss";
@@ -14,6 +15,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const [size, setSize] = useState(null);
   const [noOfQuantity, setNoOfQuantity] = useState(1);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const onIncrement = () => {
     setNoOfQuantity(noOfQuantity + 1);
@@ -37,33 +39,45 @@ const ProductDetails = () => {
       .catch((err) => {
         setIsLoading(false);
         console.error({ err });
+      })
+      .finally(() => {
+        setShowSuggestions(true);
       });
   }, []);
+  let content;
   if (!product && !isLoading) {
-    return <div>Looking for an invalid item.</div>;
+    content = (
+      <div className="product-details">Looking for an invalid item.</div>
+    );
   } else if (isLoading) {
-    return <div>Loading...</div>;
+    content = <div className="product-details">Loading...</div>;
+  } else {
+    content = (
+      <div className="product-details">
+        <div className="carousel-wrapper">
+          <Carousel url={product.image} />
+        </div>
+        <div className="product-info">
+          <header>{product.title}</header>
+          <div className="price">$ {product.price}</div>
+          <div className="description">{product.description}</div>
+          <div className="size">Size</div>
+          <SizeList onSizeSelection={onSizeSelection} />
+          <div className="quantity">Quantity</div>
+          <Quantity
+            noOfQuantity={noOfQuantity}
+            onIncrement={onIncrement}
+            onDecrement={onDecrement}
+          />
+          <div className="cart">Add to Cart</div>
+        </div>
+      </div>
+    );
   }
   return (
-    <div className="product-details">
-      <div className="carousel-wrapper">
-        <Carousel url={product.image} />
-      </div>
-      <div className="product-info">
-        <header>{product.title}</header>
-        <div className="price">$ {product.price}</div>
-        <div className="description">{product.description}</div>
-        <div className="size">Size</div>
-        <SizeList onSizeSelection={onSizeSelection} />
-        <div className="quantity">Quantity</div>
-        <Quantity
-          noOfQuantity={noOfQuantity}
-          onIncrement={onIncrement}
-          onDecrement={onDecrement}
-        />
-        <div className="cart">Add to Cart</div>
-      </div>
-      <div></div>
+    <div className="product-details-wrapper">
+      {content}
+      {showSuggestions && <Suggestions />}
     </div>
   );
 };

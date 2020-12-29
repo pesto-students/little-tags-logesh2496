@@ -26,7 +26,7 @@ const Suggestions = () => {
 
   return (
     <div className="suggesions-wrapper">
-      More you'll like
+      <span className="suggestion-title">More you'll like</span>
       <div className="suggestions">
         {categories.map(({ name, url }) => (
           <Suggestion label={name} url={url} />

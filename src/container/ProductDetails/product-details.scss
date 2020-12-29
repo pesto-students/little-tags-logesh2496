@@ -1,60 +1,63 @@
-.product-details {
-  display: flex;
-  margin-top: 60px;
+.product-details-wrapper {
+  .product-details {
+    display: flex;
+    margin-top: 60px;
+    min-height: 500px;
 
-  height: 80%;
-  align-items: center;
-  justify-content: space-around;
-  .header-area {
-    background: black;
-  }
-
-  .carousel-wrapper {
-    height: 250px;
-    width: 350px;
-    img {
-      object-fit: contain !important;
-    }
-  }
-  .product-info {
-    width: 40%;
-    header {
-      font-weight: 500;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .price {
-      font-weight: 500;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .description {
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-    .size {
-      font-weight: 500;
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
-    .size-list {
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-    .quantity {
-      margin-bottom: 10px;
-    }
-    .cart {
+    height: 80%;
+    align-items: center;
+    justify-content: space-around;
+    .header-area {
       background: black;
-      color: white;
-      width: 100px;
-      text-align: center;
-      border-radius: 4px;
-      font-size: 14px;
-      margin-bottom: 10px;
-      height: 21px;
+    }
 
-      cursor: pointer;
+    .carousel-wrapper {
+      height: 250px;
+      width: 350px;
+      img {
+        object-fit: contain !important;
+      }
+    }
+    .product-info {
+      width: 40%;
+      header {
+        font-weight: 500;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      .price {
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .description {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .size {
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      .size-list {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .quantity {
+        margin-bottom: 10px;
+      }
+      .cart {
+        background: black;
+        color: white;
+        width: 100px;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 14px;
+        margin-bottom: 10px;
+        height: 21px;
+
+        cursor: pointer;
+      }
     }
   }
 }

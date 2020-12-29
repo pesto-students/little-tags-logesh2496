@@ -8,7 +8,7 @@ import ProductList from "../ProductList";
 
 const HomePage = () => {
   return (
-    <div className="home-page">
+    <>
       <div className="closet">
         <img src="/closet1.jpg" width="100%" height="100%"></img>
         <div className="overlay">
@@ -23,7 +23,7 @@ const HomePage = () => {
       <div>
         <InDemand />
       </div>
-    </div>
+    </>
   );
 };
 HomePage.propTypes = {};
