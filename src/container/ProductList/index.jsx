@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import Suggestions from "../../components/Suggestions";
 import UseRouterClass from "../../hooks/useRouterClass";
 import Header from "../Header";
 import ProductSlide from "../ProductSlide";
@@ -20,6 +21,7 @@ const getCategoryFromQuery = (searchQuery) => {
 const ProductList = () => {
   const { searchQuery } = useParams();
   const [products, setProducts] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   UseRouterClass();
 
@@ -30,7 +32,9 @@ const ProductList = () => {
       .then((res) => res.json())
       .then((result) => {
         setProducts(result);
-      });
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setShowSuggestions(true));
   }, []);
 
   return (
@@ -42,6 +46,7 @@ const ProductList = () => {
             <ProductSlide product={product} key={product.id} />
           ))}
         </div>
+        {showSuggestions && <Suggestions />}
       </div>
     </div>
   );

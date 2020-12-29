@@ -21,6 +21,7 @@ const Layout = () => {
             ></Route>
             <Route exact default component={HomePage}></Route>
           </Switch>
+          <div className="home-footer"></div>
         </div>
       </div>
     </Router>

@@ -1,9 +1,17 @@
 .suggesions-wrapper {
-  margin: 10px;
-
+  margin: 40px 20px;
+  text-align: center;
+  .suggestion-title {
+    font-size: 28px;
+    font-weight: 600;
+  }
   .suggestions {
     display: flex;
     flex-direction: row;
     height: 200px;
+    margin: 40px 0;
+    img {
+      object-fit: contain;
+    }
   }
 }
