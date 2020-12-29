@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Carousel from "../../components/Carousel";
 import Quantity from "../../components/Quantity";
 import SizeList from "../../components/SizeList";
+import UseRouterClass from "../../hooks/useRouterClass";
 import Header from "../Header";
 import "./product-details.scss";
 
@@ -23,6 +24,9 @@ const ProductDetails = () => {
   const onSizeSelection = (selectedSize) => {
     setSize(selectedSize);
   };
+
+  UseRouterClass();
+
   useEffect(() => {
     fetch(`${productUrl}/${productId}`)
       .then((res) => res.json())
@@ -42,7 +46,6 @@ const ProductDetails = () => {
   }
   return (
     <div className="product-details">
-      <Header />
       <div className="carousel-wrapper">
         <Carousel url={product.image} />
       </div>
