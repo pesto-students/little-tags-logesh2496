@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .menu-wrapper {
   position: fixed;
   background: white;
@@ -17,7 +19,7 @@
 
     .title {
       text-align: center;
-      font-size: 26px;
+      font-size: $sub-header-font;
       font-weight: 500;
       margin-bottom: 20px;
       display: flex;
@@ -30,7 +32,7 @@
     }
     .name {
       text-align: center;
-      font-size: 18px;
+      font-size: $small-font;
       background: black;
       border-radius: 4px;
       color: white;
@@ -39,7 +41,7 @@
     }
     .categories {
       header {
-        font-size: 18px;
+        font-size: $small-font;
         margin-bottom: 20px;
       }
       margin: 0 20px 40px 20px;

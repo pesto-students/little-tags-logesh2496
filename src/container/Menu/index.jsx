@@ -7,15 +7,21 @@ import "./menu.scss";
 const Menu = () => {
   const { name } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
   const onCloseMenuClick = () => {
     dispatch(openMenu(false));
   };
+
   return (
     <Modal>
       <div className="menu-wrapper">
         <div className="menu">
           <div className="title">
-            <img src="/icons/close.svg" onClick={onCloseMenuClick} />
+            <img
+              src="/icons/close.svg"
+              onClick={onCloseMenuClick}
+              alt="close"
+            />
             <div>Little Tags</div>
           </div>
           <div className="name">Hey, {name || "Logesh"}</div>

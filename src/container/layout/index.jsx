@@ -27,6 +27,7 @@ const Layout = () => {
     </Router>
   );
 };
+
 Layout.propTypes = {};
 
 export default Layout;

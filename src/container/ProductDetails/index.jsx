@@ -44,7 +44,9 @@ const ProductDetails = () => {
         setShowSuggestions(true);
       });
   }, []);
+
   let content;
+
   if (!product && !isLoading) {
     content = (
       <div className="product-details">Looking for an invalid item.</div>
@@ -74,6 +76,7 @@ const ProductDetails = () => {
       </div>
     );
   }
+
   return (
     <div className="product-details-wrapper">
       {content}

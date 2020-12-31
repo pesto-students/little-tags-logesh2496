@@ -6,7 +6,7 @@ const ProductImage = ({ url }) => {
   return (
     <div className="product-img">
       <div className="overlay"></div>
-      <img src={url} />
+      <img src={url} alt="url" />
     </div>
   );
 };

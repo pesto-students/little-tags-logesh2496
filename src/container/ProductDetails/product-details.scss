@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .product-details-wrapper {
   .product-details {
     display: flex;
@@ -22,25 +24,26 @@
       width: 40%;
       header {
         font-weight: 500;
-        font-size: 28px;
+        font-size: $sub-header-font;
         margin-bottom: 10px;
       }
       .price {
         font-weight: 500;
-        font-size: 20px;
+        font-size: $small-font;
         margin-bottom: 10px;
       }
       .description {
-        font-size: 14px;
+        font-size: $very-small-font;
         margin-bottom: 10px;
+        opacity: 0.7;
       }
       .size {
         font-weight: 500;
-        font-size: 18px;
+        font-size: $small-font;
         margin-bottom: 5px;
       }
       .size-list {
-        font-size: 14px;
+        font-size: $very-small-font;
         margin-bottom: 10px;
       }
       .quantity {
@@ -52,9 +55,9 @@
         width: 100px;
         text-align: center;
         border-radius: 4px;
-        font-size: 14px;
+        font-size: $very-small-font;
         margin-bottom: 10px;
-        height: 21px;
+        padding: 10px;
 
         cursor: pointer;
       }

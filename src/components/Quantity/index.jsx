@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./quantity.scss";
+import PropTypes from "prop-types";
 
 const Quantity = ({ noOfQuantity, onIncrement, onDecrement }) => {
   return (
@@ -10,4 +11,11 @@ const Quantity = ({ noOfQuantity, onIncrement, onDecrement }) => {
     </div>
   );
 };
+
+Quantity.propTypes = {
+  noOfQuantity: PropTypes.number.isRequired,
+  onIncrement: PropTypes.func.isRequired,
+  onDecrement: PropTypes.func.isRequired,
+};
+
 export default Quantity;

@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import Header from "../Header";
+import React from "react";
 import "./home-page.scss";
 import InDemand from "../InDemand";
-import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
-import ProductList from "../ProductList";
 
 const HomePage = () => {
   return (
     <>
       <div className="closet">
-        <img src="/closet1.jpg" width="100%" height="100%"></img>
+        <img
+          src="/closet1.jpg"
+          width="100%"
+          height="100%"
+          alt="background"
+        ></img>
         <div className="overlay">
           <div>
             Online Flee Market for Clothes

@@ -6,7 +6,7 @@ import AddressForm from "../../components/AddressForm";
 import Button from "../../components/Button";
 import "./deliver-to.scss";
 
-const DeliverTo = (params) => {
+const DeliverTo = () => {
   const [showForm, setShowForm] = useState(false);
   const { address } = useSelector((state) => state.user);
   const userAddresses = address
@@ -17,9 +17,11 @@ const DeliverTo = (params) => {
   const handleAddAddressBtn = () => {
     setShowForm(true);
   };
+
   const handleAddInformation = (formObj) => {
     dispatch(setAddress(formObj));
   };
+
   return (
     <div className="deliver-to-container">
       <div className="header">Deliver To</div>
@@ -41,4 +43,5 @@ const DeliverTo = (params) => {
     </div>
   );
 };
+
 export default DeliverTo;

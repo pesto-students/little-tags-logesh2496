@@ -1,8 +1,9 @@
+@import "../../styles/variables.scss";
 .suggesions-wrapper {
   margin: 40px 20px;
   text-align: center;
   .suggestion-title {
-    font-size: 28px;
+    font-size: $sub-header-font;
     font-weight: 600;
   }
   .suggestions {

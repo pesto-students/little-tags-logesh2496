@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .deliver-to-container {
   width: 100%;
 
@@ -7,7 +9,7 @@
   margin: 20px 0;
 
   .header {
-    font-size: 26px;
+    font-size: $sub-header-font;
     font-weight: 500;
     margin-bottom: 20px;
   }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./size-list.scss";
+import PropTypes from "prop-types";
 
 const SizeList = ({ onSizeSelection }) => {
   return (
@@ -11,5 +12,9 @@ const SizeList = ({ onSizeSelection }) => {
       <div onClick={onSizeSelection}>XL</div>
     </div>
   );
+};
+
+SizeList.propTypes = {
+  onSizeSelection: PropTypes.func.isRequired,
 };
 export default SizeList;

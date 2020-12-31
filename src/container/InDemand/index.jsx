@@ -5,9 +5,11 @@ import "./in-demand.scss";
 
 const InDemand = () => {
   const history = useHistory();
+
   const onSuggestionClick = (e) => {
     history.push(`/home/${e.target.closest(".suggestion").id}`);
   };
+
   return (
     <div className="demand-wrapper">
       <div className="header">Most in Demand</div>
