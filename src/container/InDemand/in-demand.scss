@@ -11,15 +11,16 @@
     height: 500px;
     display: flex;
     justify-content: center;
+    // flex-wrap: wrap;
 
     .first {
       width: 360px;
-      height: 250px;
+      height: 50%;
     }
     .second,
     .third {
       width: 250px;
-      height: 500px;
+      height: 100%;
     }
   }
 }

@@ -22,7 +22,9 @@ const PrivateRoute = ({ history }) => {
   }, []);
 
   if (user) {
-    return <Redirect to="/home" />;
+    return (
+      <Redirect to={{ pathname: "/home", state: JSON.stringify({ user }) }} />
+    );
   } else if (isLoginWindow) return <Redirect to="/login" />;
   return <div>Loading...</div>;
 };

@@ -5,6 +5,7 @@ import Address from "../../components/Address";
 import AddressForm from "../../components/AddressForm";
 import Button from "../../components/Button";
 import "./deliver-to.scss";
+import useRouterClass from "../../hooks/useRouterClass";
 
 const DeliverTo = () => {
   const [showForm, setShowForm] = useState(false);
@@ -21,6 +22,7 @@ const DeliverTo = () => {
   const handleAddInformation = (formObj) => {
     dispatch(setAddress(formObj));
   };
+  useRouterClass();
 
   return (
     <div className="deliver-to-container">

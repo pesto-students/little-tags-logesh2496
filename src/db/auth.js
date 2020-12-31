@@ -15,6 +15,9 @@ const auth = () => {
     const usersRef = firebase.database().ref("users");
 
     return {
+        logout: () => {
+            app.auth().signOut();
+        },
         googleAuth: (onComplete) => {
             // Using a popup.
             var provider = new firebase.auth.GoogleAuthProvider();

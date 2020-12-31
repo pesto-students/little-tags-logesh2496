@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import { openMenu } from "../../actions";
 import UseDebounce from "../../hooks/useDebounce";
@@ -9,6 +9,10 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const {
+    isUserLoggedIn,
+    user: { displayName },
+  } = useSelector((state) => state);
 
   const onMenuClick = () => {
     dispatch(openMenu(true));
@@ -47,11 +51,19 @@ const Header = () => {
           <img src="/icons/search.svg" alt="search" />
           <input placeholder="search..." onKeyDown={onSearchEnter}></input>
         </div>
-        <div className="person">
-          <img src="/icons/person.svg" alt="person" />
-          Logesh
+        <div className="user-area">
+          {isUserLoggedIn ? (
+            <>
+              <div className="person">
+                <img src="/icons/person.svg" alt="person" />
+                {displayName}
+              </div>
+              <img className="cart" src="/icons/shopping_cart.svg" alt="cart" />
+            </>
+          ) : (
+            <div className="login-signup">Log in / Sign up</div>
+          )}
         </div>
-        <img className="cart" src="/icons/shopping_cart.svg" alt="cart" />
       </div>
     </div>
   );

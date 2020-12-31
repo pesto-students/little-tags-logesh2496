@@ -18,3 +18,7 @@ export const setAddress = (value) => ({
     type: 'SET_ADDRESS',
     value
 });
+export const addToCart = (value) => ({
+    type: 'ADD_TO_CART',
+    value
+});

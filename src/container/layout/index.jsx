@@ -5,14 +5,20 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "../Header";
 import ProductList from "../ProductList";
 import ProductDetails from "../ProductDetails";
+import { useSelector } from "react-redux";
+import Menu from "../Menu";
+import DeliverTo from "../DeliverTo";
 
 const Layout = () => {
+  const { isOpen } = useSelector((state) => state.menu);
+
   return (
     <Router>
       <div className="layout">
         <div className="home-page">
           <Header />
           <Switch>
+            <Route exact path="/home/address" component={DeliverTo}></Route>
             <Route exact path={`/home/:searchQuery`} component={ProductList} />
             <Route
               exact
@@ -22,6 +28,7 @@ const Layout = () => {
             <Route exact default component={HomePage}></Route>
           </Switch>
           <div className="home-footer"></div>
+          {isOpen && <Menu />}
         </div>
       </div>
     </Router>
