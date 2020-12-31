@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .product-slide {
   display: flex;
   justify-content: flex-start;
@@ -5,6 +7,7 @@
   align-items: center;
   min-height: 150px;
   margin: 10px 0;
+  width: 65%;
 
   border-radius: 10px;
   box-shadow: 0 0 8px 0 rgba(40, 44, 181, 0.16);
@@ -17,10 +20,14 @@
     width: 100px;
   }
   .title {
-    margin-left: auto;
+    margin-left: 3rem;
+    margin-right: auto;
+    font-size: $small-font;
+    max-width: 70%;
   }
   .price {
     margin-left: auto;
+    font-size: $very-small-font;
     &::before {
       content: "$ ";
     }

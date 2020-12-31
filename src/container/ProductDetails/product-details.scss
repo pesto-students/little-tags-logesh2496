@@ -35,6 +35,7 @@
       .description {
         font-size: $very-small-font;
         margin-bottom: 10px;
+        opacity: 0.7;
       }
       .size {
         font-weight: 500;
@@ -56,7 +57,7 @@
         border-radius: 4px;
         font-size: $very-small-font;
         margin-bottom: 10px;
-        height: 21px;
+        padding: 10px;
 
         cursor: pointer;
       }
