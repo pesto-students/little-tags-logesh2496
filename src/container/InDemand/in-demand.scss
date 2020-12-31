@@ -1,8 +1,11 @@
+@import "../../styles/variables.scss";
+
 .demand-wrapper {
   .header {
     text-align: center;
-    font-size: 36px;
+    font-size: $big-font;
     font-weight: 600;
+    margin: 30px 0;
   }
   .in-demand {
     height: 500px;

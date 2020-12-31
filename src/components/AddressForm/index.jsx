@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button";
 import "./address-form.scss";
 import PropTypes from "prop-types";
-import { getFromForm } from "../../helper/utils";
+import { extractFormObj } from "../../helper/utils";
 
 const AddressForm = ({ handleAddInformation }) => {
   const formSubmit = (e) => {
@@ -19,18 +19,18 @@ const AddressForm = ({ handleAddInformation }) => {
         pincode,
         emailId,
         mobileNo,
-      } = getFromForm(formValues);
+      } = extractFormObj(formValues);
 
       const formObj = {
         firstName,
         lastName,
-        fullName: `${firstName} ${lastName}`,
         addressOne,
         addressTwo,
         state,
-        email: emailId,
         mobileNo,
         pincode,
+        email: emailId,
+        fullName: `${firstName} ${lastName}`,
       };
       handleAddInformation(formObj);
     }

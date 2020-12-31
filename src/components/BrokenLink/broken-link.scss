@@ -1,5 +1,7 @@
+@import "../../styles/variables.scss";
+
 .broken-link {
-  font-size: 22px;
+  font-size: $medium-font;
   color: #c4c4c4;
   height: 100%;
   display: flex;

@@ -2,6 +2,11 @@
   "name": "little-tags",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Logesh",
+    "email": "logesh.r24@gmail.com",
+    "url": "http://logesh-rajappa.netlify.app/"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -14,7 +19,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "redux": "^4.0.5",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",

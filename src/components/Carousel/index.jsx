@@ -1,6 +1,7 @@
 import React from "react";
 import ProductImage from "../ProductImage";
 import "./carousel.scss";
+import PropTypes from "prop-types";
 
 const Carousel = ({ url }) => {
   return (
@@ -11,4 +12,9 @@ const Carousel = ({ url }) => {
     </div>
   );
 };
+
+Carousel.propTypes = {
+  url: PropTypes.string.isRequired,
+};
+
 export default Carousel;

@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .address {
   width: 350px;
   height: 150px;
@@ -13,7 +15,7 @@
   position: relative;
   overflow: auto;
   strong {
-    font-size: 18px;
+    font-size: $small-font;
   }
   .selectable {
     display: inline-block;

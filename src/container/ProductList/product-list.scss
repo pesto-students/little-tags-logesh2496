@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .list-wrapper {
   min-height: 500px;
   .product-list {
@@ -6,7 +8,7 @@
     .list-header {
       font-weight: 600;
       text-align: center;
-      font-size: 28px;
+      font-size: $sub-header-font;
     }
     .product-detail {
       text-align: center;

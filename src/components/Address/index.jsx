@@ -22,9 +22,14 @@ const Address = ({
     </div>
   );
 };
-Address.prototype = {
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+
+Address.propTypes = {
+  fullName: PropTypes.string.isRequired,
+  addressOne: PropTypes.string.isRequired,
+  addressTwo: PropTypes.string.isRequired,
+  pincode: PropTypes.string.isRequired,
+  state: PropTypes.string,
   mobileNo: PropTypes.number,
 };
+
 export default Address;
