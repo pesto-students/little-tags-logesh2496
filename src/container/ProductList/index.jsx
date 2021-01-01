@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import Suggestions from "../../components/Suggestions";
 import UseRouterClass from "../../hooks/useRouterClass";
+import useScrollIntoView from "../../hooks/useScrollIntoView";
 import Header from "../Header";
 import ProductSlide from "../ProductSlide";
 import "./product-list.scss";
@@ -21,7 +22,6 @@ const getCategoryFromQuery = (searchQuery) => {
 const ProductList = () => {
   const { searchQuery } = useParams();
   const [products, setProducts] = useState([]);
-  const [showSuggestions, setShowSuggestions] = useState(false);
 
   UseRouterClass();
 
@@ -33,9 +33,10 @@ const ProductList = () => {
       .then((result) => {
         setProducts(result);
       })
-      .catch((err) => console.error(err))
-      .finally(() => setShowSuggestions(true));
+      .catch((err) => console.error(err));
   }, []);
+
+  useScrollIntoView([products]);
 
   return (
     <div className="list-wrapper">
@@ -46,7 +47,6 @@ const ProductList = () => {
             <ProductSlide product={product} key={product.id} />
           ))}
         </div>
-        {showSuggestions && <Suggestions />}
       </div>
     </div>
   );

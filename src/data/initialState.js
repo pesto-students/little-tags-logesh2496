@@ -1,4 +1,8 @@
 const initialState = {
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    menu: { isOpen: false },
+    user: {},
+    cart: [],
+    isLoginModal: false
 }
 export default initialState;

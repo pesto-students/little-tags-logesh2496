@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { setAsUserLoggedIn } from "../actions";
+import { setAsUserLoggedIn, setAsUserLoggedOut } from "../actions";
 import app from "../db/app";
 
 const PrivateRoute = ({ history }) => {
@@ -16,7 +16,7 @@ const PrivateRoute = ({ history }) => {
         dispatch(setAsUserLoggedIn(true));
       } else {
         setIsLoginWindow(true);
-        dispatch(setAsUserLoggedIn(false));
+        dispatch(setAsUserLoggedOut());
       }
     });
   }, []);

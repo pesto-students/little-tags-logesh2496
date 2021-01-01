@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "../../components/Modal";
 import "./login.scss";
 import auth from "../../db/auth";
-import { setAsUserLoggedIn, setLogInUserInfo } from "../../actions";
+import { openLogin, setAsUserLoggedIn, setLogInUserInfo } from "../../actions";
 import { useDispatch } from "react-redux";
 import Button from "../../components/Button";
 
@@ -13,8 +13,9 @@ const Login = () => {
 
   const onComplete = (data) => {
     dispatch(setAsUserLoggedIn());
+    dispatch(openLogin(false));
     dispatch(setLogInUserInfo(data));
-    alert(`Welcome ${data.name} to little-tags!`);
+    alert(`Welcome ${data.displayName} to little-tags!`);
   };
   const onGoogleAuth = () => {
     googleAuth(onComplete);
