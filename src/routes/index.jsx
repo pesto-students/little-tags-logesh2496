@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Layout from "../container/layout";
+import Layout from "../container/Layout";
 import Login from "../container/Login";
 import PrivateRoute from "./privateRoute";
 import BrokenLink from "../components/BrokenLink";

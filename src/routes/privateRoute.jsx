@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { setAsUserLoggedIn } from "../actions";
-import app from "../db/base";
+import app from "../db/app";
 
 const PrivateRoute = ({ history }) => {
   const [user, setUser] = useState(null);

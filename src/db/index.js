@@ -4,12 +4,17 @@ import firebase from "firebase/app";
 // import * as firebase from "firebase/app"
 
 import "firebase/firestore";
-import app from "./base";
 
 const db = {
     updateDb: async (id, { prop, value }, onComplete) => {
         const usersRef = firebase.database().ref(`users/${id}/${prop}`);
         usersRef.update(value, onComplete);
+    },
+    getUserInfo: async (id, onComplete) => {
+        const usersRef = firebase.database().ref(`users/${id}`);
+        usersRef.once("value").then(snapshot => {
+            onComplete({ ...snapshot.val(), id });
+        })
     }
 }
 

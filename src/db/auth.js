@@ -8,7 +8,7 @@ import "firebase/firestore";
 // Add the Firebase products that you want to use
 import "firebase/auth";
 import "firebase/database";
-import app from "./base";
+import app from "./app";
 
 
 const auth = () => {
