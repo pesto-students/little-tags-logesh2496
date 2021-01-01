@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import Carousel from "../../components/Carousel";
+import { openLogin } from "../../actions";
+import Carousel from "../Carousel";
 import Quantity from "../../components/Quantity";
 import SizeList from "../../components/SizeList";
 import Suggestions from "../../components/Suggestions";
 import UseRouterClass from "../../hooks/useRouterClass";
-import Header from "../Header";
 import "./product-details.scss";
+import useScrollIntoView from "../../hooks/useScrollIntoView";
 
 const productUrl = "https://fakestoreapi.com/products";
 const ProductDetails = () => {
+  const { isUserLoggedIn } = useSelector((state) => state);
   const { searchQuery, productId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState(null);
@@ -17,6 +20,9 @@ const ProductDetails = () => {
   const [noOfQuantity, setNoOfQuantity] = useState(1);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const history = useHistory();
+
+  const dispatch = useDispatch();
+
   const onIncrement = () => {
     setNoOfQuantity(noOfQuantity + 1);
   };
@@ -27,8 +33,17 @@ const ProductDetails = () => {
     setSize(selectedSize);
   };
   const onAddToCart = () => {
-    history.push("/home/address");
+    if (!isUserLoggedIn) {
+      dispatch(openLogin(true));
+    } else {
+      history.push("/home/address");
+    }
   };
+
+  const onSuggestionClick = (id) => {
+    history.push(`/home/product/${id}`);
+  };
+
   UseRouterClass();
 
   useEffect(() => {
@@ -45,7 +60,9 @@ const ProductDetails = () => {
       .finally(() => {
         setShowSuggestions(true);
       });
-  }, []);
+  }, [productId]);
+
+  useScrollIntoView([product]);
 
   let content;
 
@@ -84,7 +101,7 @@ const ProductDetails = () => {
   return (
     <div className="product-details-wrapper">
       {content}
-      {showSuggestions && <Suggestions />}
+      {showSuggestions && <Suggestions onSuggestionClick={onSuggestionClick} />}
     </div>
   );
 };
