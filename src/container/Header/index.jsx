@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import { openMenu } from "../../actions";
+import { openLogin, openMenu } from "../../actions";
 import UseDebounce from "../../hooks/useDebounce";
 import "./header.scss";
 
@@ -30,6 +30,10 @@ const Header = () => {
     } else {
       setIsScrolled(false);
     }
+  };
+
+  const onLoginClick = () => {
+    dispatch(openLogin(true));
   };
 
   const deBounced = UseDebounce(onPageScroll, 0);
@@ -61,7 +65,9 @@ const Header = () => {
               <img className="cart" src="/icons/shopping_cart.svg" alt="cart" />
             </>
           ) : (
-            <div className="login-signup">Log in / Sign up</div>
+            <div className="login-signup" onClick={onLoginClick}>
+              Log in / Sign up
+            </div>
           )}
         </div>
       </div>

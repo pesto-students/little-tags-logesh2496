@@ -53,7 +53,7 @@ const auth = () => {
                                     }
                                 });
                             }
-                            onComplete({ id: uid, name: displayName, email, phoneNumber, cart: userCart, orders: userOrders, address: userAddress });
+                            onComplete({ id: uid, displayName, email, phoneNumber, cart: userCart, orders: userOrders, address: userAddress });
                         });
                 }).catch(e => {
                     alert('There is some problem at the server, please try again!');

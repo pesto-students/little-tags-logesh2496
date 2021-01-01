@@ -8,9 +8,13 @@ import ProductDetails from "../ProductDetails";
 import { useSelector } from "react-redux";
 import Menu from "../Menu";
 import DeliverTo from "../DeliverTo";
+import Login from "../Login";
 
 const Layout = () => {
-  const { isOpen } = useSelector((state) => state.menu);
+  const {
+    menu: { isOpen },
+    isLoginModal,
+  } = useSelector((state) => state);
 
   return (
     <Router>
@@ -29,6 +33,7 @@ const Layout = () => {
           </Switch>
           <div className="home-footer"></div>
           {isOpen && <Menu />}
+          {isLoginModal && <Login />}
         </div>
       </div>
     </Router>

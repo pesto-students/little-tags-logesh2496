@@ -1,14 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { openMenu } from "../../actions";
+import { openMenu, setAsUserLoggedOut, setLogInUserInfo } from "../../actions";
 import Modal from "../../components/Modal";
 import auth from "../../db/auth";
 import "./menu.scss";
 
 const { logout } = auth();
 const Menu = () => {
-  const { name } = useSelector((state) => state.user);
+  const { displayName } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -29,9 +29,13 @@ const Menu = () => {
     history.push(`/home`);
   };
   const onLogout = () => {
-    const isLogout = prompt("Are you sure want to logout?");
+    const isLogout = window.confirm(
+      "You will be logged out from little tags now, hit cancel to stay logged in!"
+    );
     if (isLogout) {
       logout();
+      dispatch(setAsUserLoggedOut());
+      dispatch(setLogInUserInfo({}));
     }
   };
 
@@ -47,7 +51,7 @@ const Menu = () => {
             />
             <div>Little Tags</div>
           </div>
-          <div className="name">Hey, {name || "Logesh"}</div>
+          {displayName && <div className="name">Hey, {displayName}</div>}
           <div className="categories">
             <header>CATEGORIES</header>
             <div onClick={onCategories.bind(null, "accessories")}>
@@ -61,9 +65,11 @@ const Menu = () => {
             <div>Past Orders</div>
             <div onClick={gotoAddress}>Add Address</div>
           </div>
-          <div className="logout" onClick={onLogout}>
-            Logout
-          </div>
+          {displayName && (
+            <div className="logout" onClick={onLogout}>
+              Logout
+            </div>
+          )}
         </div>
       </div>
     </Modal>
