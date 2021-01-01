@@ -33,13 +33,22 @@
       border: unset;
     }
   }
-  .person {
-    display: flex;
-    align-items: center;
+  .user-area {
+    width: 30%;
     margin-left: auto;
-    margin-right: 20px;
-  }
-  .cart {
-    margin-right: 25px;
+    display: flex;
+    .login-signup {
+      font-size: $small-font;
+      cursor: pointer;
+    }
+    .person {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 20px;
+    }
+    .cart {
+      margin-right: 25px;
+    }
   }
 }

@@ -2,7 +2,6 @@ import './App.scss';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import { createStore, applyMiddleware, compose } from 'redux';
-import Layout from './container/layout';
 import middleware from "./middleware";
 import Routes from './routes';
 

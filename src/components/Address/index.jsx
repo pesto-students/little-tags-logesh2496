@@ -9,10 +9,12 @@ const Address = ({
   state,
   pincode,
   mobileNo,
+  onAddressSelection,
+  isSelected,
 }) => {
   return (
-    <div className="address">
-      <div className="selectable"></div>
+    <div className="address" onClick={onAddressSelection}>
+      <div className={"selectable" + (isSelected ? " selected" : "")}></div>
       <strong>{fullName}</strong>
       <div>{addressOne}</div>
       <div>{addressTwo}</div>
@@ -28,8 +30,10 @@ Address.propTypes = {
   addressOne: PropTypes.string.isRequired,
   addressTwo: PropTypes.string.isRequired,
   pincode: PropTypes.string.isRequired,
+  onAddressSelection: PropTypes.func.isRequired,
   state: PropTypes.string,
   mobileNo: PropTypes.number,
+  isSelected: PropTypes.bool.isRequired,
 };
 
 export default Address;

@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./home-page.scss";
 import InDemand from "../InDemand";
+import { useHistory } from "react-router-dom";
+import { setAsUserLoggedIn, setLogInUserInfo } from "../../actions";
+import db from "../../db";
+
+const { getUserInfo } = db;
 
 const HomePage = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const onFethUserComplete = (snapshot) => {
+    dispatch(setLogInUserInfo(snapshot));
+  };
+
+  useEffect(() => {
+    if (history.location.state) {
+      const { user } = JSON.parse(history.location.state);
+      if (user) {
+        dispatch(setAsUserLoggedIn());
+        getUserInfo(user.uid, onFethUserComplete);
+      } else {
+        history.push("/");
+      }
+    } else {
+      history.push("/");
+    }
+  }, []);
+
   return (
     <>
       <div className="closet">

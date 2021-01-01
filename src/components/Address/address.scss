@@ -2,20 +2,22 @@
 
 .address {
   width: 350px;
-  height: 150px;
   margin-bottom: 25px;
   background-color: #f4f4f4;
   border-radius: 6px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  padding: 0 0 0 40px;
+  padding: 20px 20px 20px 40px;
   line-height: 1.6;
   border: 1px solid transparent;
   position: relative;
   overflow: auto;
   strong {
-    font-size: $small-font;
+    font-size: $medium-font;
+  }
+  div {
+    font-size: $very-small-font;
   }
   .selectable {
     display: inline-block;

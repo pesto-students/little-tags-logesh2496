@@ -19,6 +19,12 @@ const menu = (state, action) => {
     }
     return { isOpen: false };
 }
+const cart = (state, action) => {
+    if (action.type === 'ADD_TO_CART') {
+        return action.value;
+    }
+    return [];
+}
 // const address = (state, action) => {
 //     if (action.type === 'SET_ADDRESS') {
 //         return action.value;
@@ -28,5 +34,6 @@ const menu = (state, action) => {
 export default combineReducers({
     isUserLoggedIn,
     menu,
-    user
+    user,
+    cart
 });
