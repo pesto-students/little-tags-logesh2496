@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import Menu from "../Menu";
 import DeliverTo from "../DeliverTo";
 import Login from "../Login";
+import PastOrders from "../PastOrders";
 
 const Layout = () => {
   const {
@@ -22,13 +23,14 @@ const Layout = () => {
         <div className="home-page">
           <Header />
           <Switch>
-            <Route exact path="/home/address" component={DeliverTo}></Route>
-            <Route exact path={`/home/:searchQuery`} component={ProductList} />
+            <Route exact path="/home/address" component={DeliverTo} />
+            <Route exact path="/home/pastOrders" component={PastOrders} />
             <Route
               exact
               path="/home/:searchQuery/:productId"
               component={ProductDetails}
             ></Route>
+            <Route exact path={`/home/:searchQuery`} component={ProductList} />
             <Route exact default component={HomePage}></Route>
           </Switch>
           <div className="home-footer"></div>

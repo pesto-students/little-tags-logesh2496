@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import Suggestions from "../../components/Suggestions";
 import UseRouterClass from "../../hooks/useRouterClass";
 import useScrollIntoView from "../../hooks/useScrollIntoView";
 import Header from "../Header";
