@@ -20,14 +20,22 @@ const Menu = () => {
     onCloseMenuClick();
     history.push("/home/address");
   };
+
   const onCategories = (query) => {
     onCloseMenuClick();
     history.push(`/home/${query}`);
   };
+
   const gotoHome = () => {
     onCloseMenuClick();
     history.push(`/home`);
   };
+
+  const gotoPastOrders = () => {
+    onCloseMenuClick();
+    history.push("/home/pastOrders");
+  };
+
   const onLogout = () => {
     const isLogout = window.confirm(
       "You will be logged out from little tags now, hit cancel to stay logged in!"
@@ -61,14 +69,16 @@ const Menu = () => {
             <div onClick={onCategories.bind(null, "pants")}>Pants</div>
             <div onClick={onCategories.bind(null, "jackets")}>Jackets</div>
           </div>
-          <div className="user-details">
-            <div>Past Orders</div>
-            <div onClick={gotoAddress}>Add Address</div>
-          </div>
           {displayName && (
-            <div className="logout" onClick={onLogout}>
-              Logout
-            </div>
+            <>
+              <div className="user-details">
+                <div onClick={gotoPastOrders}>Past Orders</div>
+                <div onClick={gotoAddress}>Add Address</div>
+              </div>
+              <div className="logout" onClick={onLogout}>
+                Logout
+              </div>
+            </>
           )}
         </div>
       </div>
