@@ -2,6 +2,7 @@ import React from "react";
 import PastOrderSlide from "../../components/PastOrderSlide";
 import UseRouterClass from "../../hooks/useRouterClass";
 import "./past-orders.scss";
+import Suggestions from "../Suggestions";
 
 const pastOrders = [
   {
@@ -30,6 +31,7 @@ const PastOrders = () => {
       {pastOrders.map((pastOrder) => (
         <PastOrderSlide {...pastOrder} />
       ))}
+      <Suggestions />
     </div>
   );
 };

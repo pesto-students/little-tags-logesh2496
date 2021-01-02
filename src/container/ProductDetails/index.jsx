@@ -5,7 +5,7 @@ import { openLogin } from "../../actions";
 import Carousel from "../Carousel";
 import Quantity from "../../components/Quantity";
 import SizeList from "../../components/SizeList";
-import Suggestions from "../../components/Suggestions";
+import Suggestions from "../Suggestions";
 import UseRouterClass from "../../hooks/useRouterClass";
 import "./product-details.scss";
 import useScrollIntoView from "../../hooks/useScrollIntoView";
@@ -38,10 +38,6 @@ const ProductDetails = () => {
     } else {
       history.push("/home/address");
     }
-  };
-
-  const onSuggestionClick = (id) => {
-    history.push(`/home/product/${id}`);
   };
 
   UseRouterClass();
@@ -101,7 +97,7 @@ const ProductDetails = () => {
   return (
     <div className="product-details-wrapper">
       {content}
-      {showSuggestions && <Suggestions onSuggestionClick={onSuggestionClick} />}
+      {showSuggestions && <Suggestions />}
     </div>
   );
 };
