@@ -29,7 +29,7 @@
     margin-left: auto;
     font-size: $very-small-font;
     &::before {
-      content: "$ ";
+      content: "₹ ";
     }
   }
 }

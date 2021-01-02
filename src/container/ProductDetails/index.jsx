@@ -80,7 +80,7 @@ const ProductDetails = () => {
         </div>
         <div className="product-info">
           <header>{product.title}</header>
-          <div className="price">$ {product.price}</div>
+          <div className="price">₹ {product.price}</div>
           <div className="description">{product.description}</div>
           <div className="size">Size</div>
           <SizeList onSizeSelection={onSizeSelection} />
