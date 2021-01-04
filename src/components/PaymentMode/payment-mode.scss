@@ -1,0 +1,16 @@
+@import "../../styles/variables.scss";
+
+.payment-mode {
+  display: flex;
+  flex-direction: column;
+  font-size: $small-font;
+
+  width: 350px;
+  padding: 20px 20px 20px 40px;
+  .pay-item {
+    padding: 5px;
+    label {
+      padding-left: 13px;
+    }
+  }
+}

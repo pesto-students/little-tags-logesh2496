@@ -12,13 +12,14 @@ const Menu = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const onCloseMenuClick = () => {
+  const onCloseMenuClick = (e) => {
+    e?.stopPropagation();
     dispatch(openMenu(false));
   };
 
   const gotoAddress = () => {
     onCloseMenuClick();
-    history.push("/home/address");
+    history.push("/home/address", { showAddAddress: true });
   };
 
   const onCategories = (query) => {

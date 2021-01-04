@@ -11,10 +11,13 @@ const Address = ({
   mobileNo,
   onAddressSelection,
   isSelected,
+  hideSelectable,
 }) => {
   return (
     <div className="address" onClick={onAddressSelection}>
-      <div className={"selectable" + (isSelected ? " selected" : "")}></div>
+      {!hideSelectable && (
+        <div className={"selectable" + (isSelected ? " selected" : "")}></div>
+      )}
       <strong>{fullName}</strong>
       <div>{addressOne}</div>
       <div>{addressTwo}</div>
@@ -34,6 +37,7 @@ Address.propTypes = {
   state: PropTypes.string,
   mobileNo: PropTypes.number,
   isSelected: PropTypes.bool.isRequired,
+  hideSelectable: PropTypes.bool,
 };
 
 export default Address;
