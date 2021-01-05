@@ -22,7 +22,15 @@ export const setAddress = (value) => ({
     type: 'SET_ADDRESS',
     value
 });
+export const emptyCart = () => ({
+    type: 'EMPTY_CART',
+    value: []
+});
 export const addToCart = (value) => ({
     type: 'ADD_TO_CART',
+    value
+});
+export const removeFromCart = (value) => ({
+    type: 'REMOVE_FROM_CART',
     value
 });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { openLogin } from "../../actions";
+import { addToCart, openLogin } from "../../actions";
 import Carousel from "../Carousel";
 import Quantity from "../../components/Quantity";
 import SizeList from "../../components/SizeList";
@@ -12,22 +12,28 @@ import useScrollIntoView from "../../hooks/useScrollIntoView";
 
 const productUrl = "https://fakestoreapi.com/products";
 const ProductDetails = () => {
-  const { isUserLoggedIn } = useSelector((state) => state);
+  const { isUserLoggedIn, cart } = useSelector((state) => state);
   const { searchQuery, productId } = useParams();
+
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState(null);
   const [size, setSize] = useState(null);
   const [noOfQuantity, setNoOfQuantity] = useState(1);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const history = useHistory();
 
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const onIncrement = () => {
     setNoOfQuantity(noOfQuantity + 1);
   };
   const onDecrement = () => {
-    setNoOfQuantity(noOfQuantity - 1);
+    const newQuantity = noOfQuantity - 1;
+    if (newQuantity) {
+      setNoOfQuantity(noOfQuantity - 1);
+    } else {
+      setNoOfQuantity(0);
+    }
   };
   const onSizeSelection = (selectedSize) => {
     setSize(selectedSize);
@@ -36,7 +42,7 @@ const ProductDetails = () => {
     if (!isUserLoggedIn) {
       dispatch(openLogin(true));
     } else {
-      history.push("/home/address");
+      dispatch(addToCart({ id: product.id, quantity: noOfQuantity }));
     }
   };
 
@@ -48,6 +54,11 @@ const ProductDetails = () => {
       .then((result) => {
         setIsLoading(false);
         setProduct(result);
+        const cartQuantity = cart.filter((obj) => obj.id === result.id)[0]
+          ?.quantity;
+        if (cartQuantity) {
+          setNoOfQuantity(cartQuantity);
+        }
       })
       .catch((err) => {
         setIsLoading(false);

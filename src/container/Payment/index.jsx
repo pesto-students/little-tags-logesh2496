@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { emptyCart } from "../../actions";
 import Button from "../../components/Button";
 import PaymentMode from "../../components/PaymentMode";
 import ThankYouNote from "../../components/ThankYouNote";
@@ -8,10 +10,19 @@ import "./payment.scss";
 
 const Payment = () => {
   const [showThanks, setShowThanks] = useState(false);
+  const [paymentMode, setPaymentMode] = useState(0);
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleContinue = () => {
     history.push("/");
+  };
+  const onPaymentChange = (id) => {
+    setPaymentMode(id);
+  };
+  const paymentProceed = () => {
+    setShowThanks(true);
+    dispatch(emptyCart());
   };
 
   return (
@@ -21,10 +32,8 @@ const Payment = () => {
       ) : (
         <>
           <DeliverTo showOnlySelected />
-          <PaymentMode />
-          <Button onClick={() => setShowThanks(true)}>
-            PROCEED TO PAYMENT
-          </Button>
+          <PaymentMode mode={paymentMode} onPaymentChange={onPaymentChange} />
+          <Button onClick={paymentProceed}>PROCEED TO PAYMENT</Button>
         </>
       )}
     </div>
