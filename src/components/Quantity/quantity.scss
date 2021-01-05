@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .quantity-cal {
   display: flex;
   width: 90px;
@@ -12,5 +14,6 @@
     cursor: pointer;
     text-align: center;
     padding: 5px;
+    font-size: $small-font;
   }
 }

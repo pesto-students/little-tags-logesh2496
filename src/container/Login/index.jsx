@@ -24,6 +24,7 @@ const Login = () => {
   return (
     <Modal>
       <div className="login">
+        <img className="close" src="/icons/close.svg" alt="close" />
         <div className="buttons-container">
           <div className="login-header">Log in / Sign up</div>
           <div className="helper">using your</div>

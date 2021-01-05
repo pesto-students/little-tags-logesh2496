@@ -12,6 +12,7 @@ const Header = () => {
   const {
     isUserLoggedIn,
     user: { displayName },
+    cart,
   } = useSelector((state) => state);
 
   const onMenuClick = () => {
@@ -35,6 +36,9 @@ const Header = () => {
   const onLoginClick = () => {
     dispatch(openLogin(true));
   };
+  const gotoCart = () => {
+    history.push("/home/cart");
+  };
 
   const deBounced = UseDebounce(onPageScroll, 0);
 
@@ -55,14 +59,19 @@ const Header = () => {
           <img src="/icons/search.svg" alt="search" />
           <input placeholder="search..." onKeyDown={onSearchEnter}></input>
         </div>
-        <div className="user-area">
+        <div className="user-area" title={displayName}>
           {isUserLoggedIn ? (
             <>
               <div className="person">
                 <img src="/icons/person.svg" alt="person" />
                 {displayName}
               </div>
-              <img className="cart" src="/icons/shopping_cart.svg" alt="cart" />
+              <div className="cart" onClick={gotoCart}>
+                <img src="/icons/shopping_cart.svg" alt="cart" />
+                {cart.length > 0 && (
+                  <div className="cart-count">{cart.length}</div>
+                )}
+              </div>
             </>
           ) : (
             <div className="login-signup" onClick={onLoginClick}>

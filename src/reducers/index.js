@@ -20,8 +20,16 @@ const menu = (state = initialState.menu, action) => {
     return state;
 }
 const cart = (state = initialState.cart, action) => {
-    if (action.type === 'ADD_TO_CART') {
-        return action.value;
+    if (action.type === 'EMPTY_CART') {
+        return [];
+    } else if (action.type === 'ADD_TO_CART') {
+        const filteredCart = state.filter(obj => obj.id === action.value.id);
+        if (filteredCart.length) {
+            return [...state.filter(obj => obj.id !== action.value.id), action.value]
+        }
+        return [...state, action.value];
+    } else if (action.type === 'REMOVE_FROM_CART') {
+        return state.filter(item => item.id !== action.value);
     }
     return state;
 }

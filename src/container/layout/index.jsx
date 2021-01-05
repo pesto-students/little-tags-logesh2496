@@ -10,6 +10,7 @@ import Menu from "../Menu";
 import DeliverTo from "../DeliverTo";
 import Login from "../Login";
 import PastOrders from "../PastOrders";
+import Cart from "../Cart";
 
 const Layout = () => {
   const {
@@ -25,6 +26,7 @@ const Layout = () => {
           <Switch>
             <Route exact path="/home/address" component={DeliverTo} />
             <Route exact path="/home/pastOrders" component={PastOrders} />
+            <Route exact path="/home/cart" component={Cart} />
             <Route
               exact
               path="/home/:searchQuery/:productId"
