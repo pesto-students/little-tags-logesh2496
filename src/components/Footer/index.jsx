@@ -13,6 +13,18 @@ const Footer = ({ onFooterClick }) => {
             Address: 1418 Riverwood Drive, Suite 3245 Cottonwood, CA 96052,
             United State
           </p>
+          <p>We accept:</p>
+          <div>
+            <img src="/images/amazon_inverse.svg" width="20px" alt="amazon" />
+            <img src="/images/jcb_inverse.svg" width="20px" alt="jcb" />
+            <img
+              src="/images/mastercard_inverse.svg"
+              width="20px"
+              alt="mastercard"
+            />
+            <img src="/images/paypal_inverse.svg" width="20px" alt="paypal" />
+            <img src="/images/visa_inverse.svg" width="20px" alt="visa" />
+          </div>
         </div>
       </div>
       <div className="categories">
