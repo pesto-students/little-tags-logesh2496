@@ -17,13 +17,15 @@ import Login from "../Login";
 import PastOrders from "../PastOrders";
 import Cart from "../Cart";
 import Footer from "../../components/Footer";
+import createBrowserHistory from "history/createBrowserHistory";
 
 const Layout = () => {
   const {
     menu: { isOpen },
     isLoginModal,
   } = useSelector((state) => state);
-  const history = useHistory();
+
+  const history = createBrowserHistory({ forceRefresh: true });
 
   const onFooterClick = (query) => {
     history.push(`/home/${query}`);
