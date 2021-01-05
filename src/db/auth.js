@@ -17,7 +17,7 @@ const auth = () => {
     const onSignIn = (result, onComplete) => {
         // The signed-in user info.
         var { email, displayName, photoURL, phoneNumber, uid } = result.user;
-        usersRef.on("value")
+        usersRef.once("value")
             .then(function (snapshot) {
                 let userCart = [];
                 let userOrders = [];
