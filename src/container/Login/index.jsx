@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import Button from "../../components/Button";
 import { useHistory } from "react-router-dom";
 
-const { googleAuth } = auth();
+const { googleAuth, facebookAuth } = auth();
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -25,6 +25,9 @@ const Login = () => {
   const onClose = () => {
     dispatch(openLogin(false));
   };
+  const onFacebookAuth = () => {
+    facebookAuth(onComplete);
+  };
 
   return (
     <Modal>
@@ -41,7 +44,9 @@ const Login = () => {
           <Button className="google-btn" onClick={onGoogleAuth}>
             Google Account
           </Button>
-          <Button className="facebook-btn">Facebook Account</Button>
+          <Button className="facebook-btn" onClick={onFacebookAuth}>
+            Facebook Account
+          </Button>
         </div>
       </div>
     </Modal>

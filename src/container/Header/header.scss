@@ -53,10 +53,13 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-size: $small-font;
     }
     .cart {
       margin-right: 25px;
       position: relative;
+      display: flex;
+      align-items: center;
       .cart-count {
         position: absolute;
         top: 0px;
