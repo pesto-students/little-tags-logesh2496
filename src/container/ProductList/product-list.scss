@@ -4,7 +4,9 @@
   min-height: 500px;
   .product-list {
     margin-top: 60px;
-
+    .loading {
+      text-align: center;
+    }
     .list-header {
       font-weight: 600;
       text-align: center;

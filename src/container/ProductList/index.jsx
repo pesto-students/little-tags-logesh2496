@@ -7,11 +7,18 @@ import ProductSlide from "../ProductSlide";
 import "./product-list.scss";
 
 const getCategoryFromQuery = (searchQuery) => {
-  if (searchQuery.includes("Shirt")) {
+  if (
+    searchQuery.toLowerCase().includes("shirt") ||
+    searchQuery.toLowerCase().includes("jacket") ||
+    searchQuery.toLowerCase().includes("top")
+  ) {
     return "men clothing";
-  } else if (searchQuery.includes("Jean")) {
+  } else if (
+    searchQuery.toLowerCase().includes("jean") ||
+    searchQuery.toLowerCase().includes("pant")
+  ) {
     return "men clothing";
-  } else if (searchQuery.includes("Necklace")) {
+  } else if (searchQuery.toLowerCase().includes("necklace")) {
     return "jewelery";
   } else {
     return "electronics";
@@ -21,10 +28,12 @@ const getCategoryFromQuery = (searchQuery) => {
 const ProductList = () => {
   const { searchQuery } = useParams();
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   UseRouterClass();
 
   useEffect(() => {
+    setIsLoading(true);
     document.firstElementChild.scrollTop = 0;
     const category = getCategoryFromQuery(searchQuery);
     fetch(`https://fakestoreapi.com/products/category/${category}`)
@@ -32,20 +41,27 @@ const ProductList = () => {
       .then((result) => {
         setProducts(result);
       })
-      .catch((err) => console.error(err));
-  }, []);
+      .catch((err) => console.error(err))
+      .finally(() => setIsLoading(false));
+  }, [searchQuery]);
 
   useScrollIntoView([products]);
 
   return (
     <div className="list-wrapper">
       <div className="product-list">
-        <div className="list-header">{searchQuery}</div>
-        <div className="product-detail">
-          {products.map((product) => (
-            <ProductSlide product={product} key={product.id} />
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="loading">Loading... </div>
+        ) : (
+          <>
+            <div className="list-header">{searchQuery}</div>
+            <div className="product-detail">
+              {products.map((product) => (
+                <ProductSlide product={product} key={product.id} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

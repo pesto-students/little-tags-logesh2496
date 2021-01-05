@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+
+.footer-wrapper {
+  display: flex;
+  font-size: $small-font;
+  justify-content: space-around;
+  padding: 6% 10%;
+  padding-bottom: 0;
+
+  color: #6f6f6f;
+  header {
+    color: white;
+  }
+  .contact {
+    width: 30%;
+    img {
+      margin-right: 5px;
+    }
+  }
+  .categories {
+    margin-right: auto;
+    margin-left: 50px;
+    p {
+      cursor: pointer;
+    }
+  }
+  p {
+    font-size: $very-small-font;
+  }
+  .subscribe {
+    margin-top: 20px;
+    display: flex;
+    div {
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #32353c;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+  }
+}

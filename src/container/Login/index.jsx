@@ -5,17 +5,19 @@ import auth from "../../db/auth";
 import { openLogin, setAsUserLoggedIn, setLogInUserInfo } from "../../actions";
 import { useDispatch } from "react-redux";
 import Button from "../../components/Button";
+import { useHistory } from "react-router-dom";
 
 const { googleAuth } = auth();
 
 const Login = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onComplete = (data) => {
     dispatch(setAsUserLoggedIn());
     onClose();
     dispatch(setLogInUserInfo(data));
-    alert(`Welcome ${data.displayName} to little-tags!`);
+    history.push("/home");
   };
   const onGoogleAuth = () => {
     googleAuth(onComplete);
