@@ -1,16 +1,11 @@
 @import "../../styles/variables.scss";
 
-.broken-link {
-  font-size: $medium-font;
+.loading {
   color: #c4c4c4;
+  font-size: $small-font;
+  font-weight: 600;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  img {
-    width: 150px;
-    border-radius: 14px;
-    margin-left: 30px;
-  }
 }

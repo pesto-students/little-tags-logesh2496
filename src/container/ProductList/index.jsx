@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "../../components/Loading";
 import UseRouterClass from "../../hooks/useRouterClass";
 import useScrollIntoView from "../../hooks/useScrollIntoView";
 import Header from "../Header";
@@ -51,7 +52,7 @@ const ProductList = () => {
     <div className="list-wrapper">
       <div className="product-list">
         {isLoading ? (
-          <div className="loading">Loading... </div>
+          <Loading />
         ) : (
           <>
             <div className="list-header">{searchQuery}</div>
