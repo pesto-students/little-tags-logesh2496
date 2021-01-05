@@ -13,18 +13,26 @@ const Login = () => {
 
   const onComplete = (data) => {
     dispatch(setAsUserLoggedIn());
-    dispatch(openLogin(false));
+    onClose();
     dispatch(setLogInUserInfo(data));
     alert(`Welcome ${data.displayName} to little-tags!`);
   };
   const onGoogleAuth = () => {
     googleAuth(onComplete);
   };
+  const onClose = () => {
+    dispatch(openLogin(false));
+  };
 
   return (
     <Modal>
       <div className="login">
-        <img className="close" src="/icons/close.svg" alt="close" />
+        <img
+          className="close"
+          src="/icons/close.svg"
+          alt="close"
+          onClick={onClose}
+        />
         <div className="buttons-container">
           <div className="login-header">Log in / Sign up</div>
           <div className="helper">using your</div>
