@@ -55,6 +55,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: $small-font;
+
+      img {
+        border-radius: 50%;
+        border: 1px solid white;
+        padding: 1px;
+        margin-right: 10px;
+      }
     }
     .cart {
       margin-right: 25px;
