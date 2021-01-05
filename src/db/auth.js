@@ -14,6 +14,36 @@ import app from "./app";
 const auth = () => {
     const usersRef = firebase.database().ref("users");
 
+    const onSignIn = (result, onComplete) => {
+        // The signed-in user info.
+        var { email, displayName, photoURL, phoneNumber, uid } = result.user;
+        usersRef.once("value")
+            .then(function (snapshot) {
+                let userCart = [];
+                let userOrders = [];
+                let userAddress = [];
+                if (snapshot.exists() && snapshot.child(uid).exists()) {
+                    const { cart, orders, address } = snapshot.child(uid).val();
+                    userCart = cart;
+                    userOrders = orders;
+                    userAddress = address;
+                } else {
+                    usersRef.update({
+                        [uid]: {
+                            displayName,
+                            email,
+                            photoURL,
+                            phoneNumber,
+                            cart: null,
+                            orders: null,
+                            address: null
+                        }
+                    });
+                }
+                onComplete({ id: uid, displayName, email, phoneNumber, cart: userCart, orders: userOrders, address: userAddress });
+            });
+    }
+
     return {
         logout: () => {
             app.auth().signOut();
@@ -25,45 +55,34 @@ const auth = () => {
             provider.addScope('email');
             app.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
                 app.auth().signInWithPopup(provider).then(result => {
-                    // This gives you a Google Access Token.
-                    var token = result.credential.accessToken;
-                    // The signed-in user info.
-                    var { email, displayName, photoURL, phoneNumber, uid } = result.user;
-                    //TODO check existing user
-                    usersRef.once("value")
-                        .then(function (snapshot) {
-                            let userCart = [];
-                            let userOrders = [];
-                            let userAddress = [];
-                            if (snapshot.exists() && snapshot.child(uid).exists()) {
-                                const { cart, orders, address } = snapshot.child(uid).val();
-                                userCart = cart;
-                                userOrders = orders;
-                                userAddress = address;
-                            } else {
-                                usersRef.update({
-                                    [uid]: {
-                                        displayName,
-                                        email,
-                                        photoURL,
-                                        phoneNumber,
-                                        cart: null,
-                                        orders: null,
-                                        address: null
-                                    }
-                                });
-                            }
-                            onComplete({ id: uid, displayName, email, phoneNumber, cart: userCart, orders: userOrders, address: userAddress });
-                        });
-                }).catch(e => {
-                    alert('There is some problem at the server, please try again!');
-                    console.log(e);
-                });
+                    onSignIn(result, onComplete);
+                }).catch(signInError);
             });
         },
-        facebookAuth: () => {
-
+        facebookAuth: (onComplete) => {
+            var provider = new firebase.auth.FacebookAuthProvider();
+            provider.addScope('user_birthday');
+            firebase.auth().useDeviceLanguage();
+            provider.setCustomParameters({
+                'display': 'popup'
+            });
+            firebase
+                .auth()
+                .signInWithPopup(provider)
+                .then((result) => {
+                    onSignIn(result, onComplete);
+                })
+                .catch(signInError);
         }
     }
 };
+function signInError(error) {
+    var errorCode = error.code;
+    // ...
+    if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Your account already exists. Please try other sign in options.');
+    } else {
+        alert('There is some problem at server, please try again later.');
+    }
+}
 export default auth;
