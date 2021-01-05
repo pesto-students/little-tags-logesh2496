@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddress } from "../../actions";
 import Address from "../../components/Address";
@@ -19,11 +19,8 @@ const DeliverTo = ({ showOnlySelected, location }) => {
       return false;
     }
   });
-  const {
-    address,
-    id,
-    defaultAddress: { fullName: selectedAddressName },
-  } = useSelector((state) => state.user);
+  const { address, id, defaultAddress } = useSelector((state) => state.user);
+  const { fullName: selectedAddressName } = defaultAddress || {};
 
   const [showPayment, setShowPayment] = useState(false);
 
@@ -54,8 +51,11 @@ const DeliverTo = ({ showOnlySelected, location }) => {
 
   const handleAddInformation = (formObj) => {
     dispatch(setAddress(formObj));
+    setShowForm(false);
   };
   useRouterClass();
+
+  useEffect(() => {}, [showForm]);
 
   if (showPayment) {
     return <Payment />;
