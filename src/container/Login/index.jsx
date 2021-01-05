@@ -42,9 +42,11 @@ const Login = () => {
           <div className="login-header">Log in / Sign up</div>
           <div className="helper">using your</div>
           <Button className="google-btn" onClick={onGoogleAuth}>
+            <img src="/icons/google.svg" alt="" />
             Google Account
           </Button>
           <Button className="facebook-btn" onClick={onFacebookAuth}>
+            <img src="/icons/facebook.svg" alt="" />
             Facebook Account
           </Button>
         </div>

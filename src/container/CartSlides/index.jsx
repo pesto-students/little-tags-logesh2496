@@ -4,6 +4,7 @@ import ProductImage from "../../components/ProductImage";
 import Quantity from "../../components/Quantity";
 
 import "./cart-slides.scss";
+import Loading from "../../components/Loading";
 const productUrl = "https://fakestoreapi.com/products";
 const CartSlides = ({ id, quantity, onProductRemove }) => {
   const [noOfQuantity, setNoOfQuantity] = useState(quantity);
@@ -39,7 +40,7 @@ const CartSlides = ({ id, quantity, onProductRemove }) => {
   }, [id]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

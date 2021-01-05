@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { setAsUserLoggedIn, setAsUserLoggedOut } from "../actions";
+import Loading from "../components/Loading";
 import app from "../db/app";
 
 const PrivateRoute = ({ history }) => {
@@ -26,6 +27,6 @@ const PrivateRoute = ({ history }) => {
       <Redirect to={{ pathname: "/home", state: JSON.stringify({ user }) }} />
     );
   } else if (isLoginWindow) return <Redirect to="/login" />;
-  return <div>Loading...</div>;
+  return <Loading />;
 };
 export default PrivateRoute;

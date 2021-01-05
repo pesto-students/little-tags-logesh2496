@@ -39,6 +39,9 @@ const Header = () => {
   const gotoCart = () => {
     history.push("/home/cart");
   };
+  const gotoHome = () => {
+    history.push("/home");
+  };
 
   const deBounced = UseDebounce(onPageScroll, 0);
 
@@ -54,7 +57,7 @@ const Header = () => {
     <div className={"header-area" + (isScrolled ? " scrolled" : "")}>
       <div className="home-header">
         <img src="/icons/menu.svg" onClick={onMenuClick} alt="menu" />
-        <strong>Little Tags</strong>
+        <strong onClick={gotoHome}>Little Tags</strong>
         <div className="search-area">
           <img src="/icons/search.svg" alt="search" />
           <input placeholder="search..." onKeyDown={onSearchEnter}></input>

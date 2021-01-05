@@ -9,6 +9,7 @@ import Suggestions from "../Suggestions";
 import UseRouterClass from "../../hooks/useRouterClass";
 import "./product-details.scss";
 import useScrollIntoView from "../../hooks/useScrollIntoView";
+import Loading from "../../components/Loading";
 
 const productUrl = "https://fakestoreapi.com/products";
 const ProductDetails = () => {
@@ -78,7 +79,11 @@ const ProductDetails = () => {
       <div className="product-details">Looking for an invalid item.</div>
     );
   } else if (isLoading) {
-    content = <div className="product-details">Loading...</div>;
+    content = (
+      <div className="product-details">
+        <Loading />
+      </div>
+    );
   } else {
     content = (
       <div className="product-details">
