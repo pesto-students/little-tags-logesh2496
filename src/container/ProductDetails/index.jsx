@@ -103,6 +103,7 @@ const ProductDetails = () => {
             onDecrement={onDecrement}
           />
           <div className="cart" onClick={onAddToCart}>
+            <img src="/icons/shopping_cart.svg" alt="" />
             Add to Cart
           </div>
         </div>
