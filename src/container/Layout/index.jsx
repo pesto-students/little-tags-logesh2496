@@ -1,7 +1,12 @@
 import React from "react";
 import "./layout.scss";
 import HomePage from "../HomePage";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom";
 import Header from "../Header";
 import ProductList from "../ProductList";
 import ProductDetails from "../ProductDetails";
@@ -11,12 +16,18 @@ import DeliverTo from "../DeliverTo";
 import Login from "../Login";
 import PastOrders from "../PastOrders";
 import Cart from "../Cart";
+import Footer from "../../components/Footer";
 
 const Layout = () => {
   const {
     menu: { isOpen },
     isLoginModal,
   } = useSelector((state) => state);
+  const history = useHistory();
+
+  const onFooterClick = (query) => {
+    history.push(`/home/${query}`);
+  };
 
   return (
     <Router>
@@ -35,7 +46,9 @@ const Layout = () => {
             <Route exact path={`/home/:searchQuery`} component={ProductList} />
             <Route exact default component={HomePage}></Route>
           </Switch>
-          <div className="home-footer"></div>
+          <div className="home-footer">
+            <Footer onFooterClick={onFooterClick} />
+          </div>
           {isOpen && <Menu />}
           {isLoginModal && <Login />}
         </div>

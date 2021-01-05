@@ -60,7 +60,7 @@ const Header = () => {
           <input placeholder="search..." onKeyDown={onSearchEnter}></input>
         </div>
         <div className="user-area" title={displayName}>
-          {isUserLoggedIn ? (
+          {displayName ? (
             <>
               <div className="person">
                 <img src="/icons/person.svg" alt="person" />

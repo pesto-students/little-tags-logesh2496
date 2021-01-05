@@ -5,6 +5,7 @@ import InDemand from "../InDemand";
 import { useHistory } from "react-router-dom";
 import { setAsUserLoggedIn, setLogInUserInfo } from "../../actions";
 import db from "../../db";
+import app from "../../db/app";
 
 const { getUserInfo } = db;
 
@@ -26,7 +27,12 @@ const HomePage = () => {
         history.push("/");
       }
     } else {
-      history.push("/");
+      app.auth().onAuthStateChanged((e) => {
+        if (e) {
+          dispatch(setAsUserLoggedIn(true));
+          getUserInfo(e.uid, onFethUserComplete);
+        }
+      });
     }
   }, []);
 
