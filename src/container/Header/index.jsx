@@ -56,11 +56,22 @@ const Header = () => {
   return (
     <div className={"header-area" + (isScrolled ? " scrolled" : "")}>
       <div className="home-header">
-        <img src="/icons/menu.svg" onClick={onMenuClick} alt="menu" />
+        <img
+          className="menu-icon"
+          src="/icons/menu.svg"
+          onClick={onMenuClick}
+          alt="menu"
+        />
         <strong onClick={gotoHome}>Little Tags</strong>
         <div className="search-area">
-          <img src="/icons/search.svg" alt="search" />
-          <input placeholder="search..." onKeyDown={onSearchEnter}></input>
+          <label htmlFor="search">
+            <img src="/icons/search.svg" alt="search" />
+          </label>
+          <input
+            placeholder="search..."
+            onKeyDown={onSearchEnter}
+            id="search"
+          />
         </div>
         <div className="user-area" title={displayName}>
           {displayName ? (

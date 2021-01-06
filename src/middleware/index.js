@@ -7,24 +7,26 @@ const { updateDb } = db;
  * Typically called from app.js
  */
 const loginMiddleware = (store) => (next) => (action) => {
-    if (action.type === 'USER_ONLINE') {
-        const { user } = store.getState();
-        updateDb(user.id, { prop: 'isOnline', value: true });
-        next(action);
-    } else {
-        next(action);
-    }
+    next(action);
+    // if (action.type === 'USER_ONLINE') {
+    //     const { user } = store.getState();
+    //     updateDb(user.id, { prop: 'isOnline', value: true });
+    //     next(action);
+    // } else {
+    //     next(action);
+    // }
 }
 const addressMiddleware = (store) => (next) => (action) => {
+    next(action);
     if (action.type === 'SET_ADDRESS') {
         const { user } = store.getState();
         const onComplete = () => {
             //TODO add toast here
-            next(action);
+            // next(action);
         }
         updateDb(user.id, { prop: 'address', value: { [action.value.fullName]: action.value } }, onComplete);
     } else {
-        next(action);
+        // next(action);
     }
 }
 export default applyMiddleware(loginMiddleware, addressMiddleware);

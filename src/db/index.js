@@ -7,7 +7,7 @@ import "firebase/firestore";
 
 const db = {
     updateDb: async (id, { prop, value }, onComplete) => {
-        const usersRef = firebase.database().ref(`users/${id}/${prop}`);
+        const usersRef = prop ? firebase.database().ref(`users/${id}/${prop}`) : firebase.database().ref(`users/${id}`);
         usersRef.update(value, onComplete);
     },
     getUserInfo: async (id, onComplete) => {

@@ -17,6 +17,13 @@
   font-size: $medium-font;
   background-color: rgba(0, 0, 0, 0.1);
   color: white;
+  .menu-icon {
+    margin-left: 5px;
+    transition: transform 0.3s;
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
   strong {
     margin-left: 30px;
     cursor: pointer;
@@ -27,7 +34,17 @@
     align-items: center;
     margin-left: auto;
     width: 50%;
+    label {
+      display: flex;
+      align-items: center;
+    }
+    &:focus-within {
+      img {
+        transform: rotate(90deg);
+      }
+    }
     img {
+      transition: transform 0.3s ease-in-out;
       margin-right: 5px;
     }
     input {

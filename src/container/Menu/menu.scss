@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     padding: 5px;
+    animation: menu-slide 0.3s ease-in;
 
     .title {
       text-align: center;
@@ -44,12 +45,14 @@
       padding: 5px;
     }
     .categories {
+      margin-top: 10px;
       header {
         font-size: $small-font;
         margin-bottom: 20px;
       }
       div {
         padding: 5px;
+        font-size: $very-small-font;
         &:hover {
           background-color: #c4c4c4;
           cursor: pointer;
@@ -80,5 +83,14 @@
       background-color: #ebebeb;
       cursor: pointer;
     }
+  }
+}
+
+@keyframes menu-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
