@@ -2,12 +2,12 @@
 
 .deliver-to-container {
   width: 100%;
-
+  min-height: 80%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 60px;
-  height: 100%;
+  margin-top: 80px;
+  margin-bottom: 40px;
 
   .header {
     font-size: $sub-header-font;
@@ -21,10 +21,20 @@
     font-weight: 500;
     margin-bottom: 20px;
     cursor: pointer;
+    font-size: $very-small-font;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     span {
-      display: inline-block;
-      border: 1px solid;
+      border: 2px solid;
       border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      justify-content: center;
+      font-weight: 600;
     }
   }
 }

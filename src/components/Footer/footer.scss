@@ -22,6 +22,9 @@
     margin-left: 50px;
     p {
       cursor: pointer;
+      &:hover {
+        color: white;
+      }
     }
   }
   p {
@@ -30,11 +33,21 @@
   .subscribe {
     margin-top: 20px;
     display: flex;
+
+    input {
+      border-radius: 4px;
+      padding: 2px;
+    }
     div {
       box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
       background-color: #32353c;
       padding: 0 10px;
       cursor: pointer;
+      margin-left: 10px;
+      transition: box-shadow 0.3s ease-in-out;
+      &:hover {
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+      }
     }
   }
 }

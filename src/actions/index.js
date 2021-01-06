@@ -34,3 +34,7 @@ export const removeFromCart = (value) => ({
     type: 'REMOVE_FROM_CART',
     value
 });
+export const updateDefaultAddress = (value) => ({
+    type: 'DEFAULT_ADDRESS',
+    value
+});

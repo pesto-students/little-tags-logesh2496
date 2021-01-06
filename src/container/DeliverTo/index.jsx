@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setAddress } from "../../actions";
+import { setAddress, updateDefaultAddress } from "../../actions";
 import Address from "../../components/Address";
 import AddressForm from "../../components/AddressForm";
 import Button from "../../components/Button";
@@ -19,9 +19,9 @@ const DeliverTo = ({ showOnlySelected, location }) => {
       return false;
     }
   });
-  const { address, id, defaultAddress } = useSelector((state) => state.user);
-  const { fullName: selectedAddressName } = defaultAddress || {};
-
+  const { address, id, defaultAddress: selectedAddressName } = useSelector(
+    (state) => state.user
+  );
   const [showPayment, setShowPayment] = useState(false);
 
   const getUserAddress = () => {
@@ -40,9 +40,9 @@ const DeliverTo = ({ showOnlySelected, location }) => {
   const dispatch = useDispatch();
 
   const onAddressSelection = ({ fullName }) => {
+    dispatch(updateDefaultAddress(fullName));
     updateDb(id, {
-      prop: `defaultAddress`,
-      value: { fullName },
+      value: { defaultAddress: fullName },
     });
   };
   const handleAddAddressBtn = () => {
@@ -84,7 +84,7 @@ const DeliverTo = ({ showOnlySelected, location }) => {
             <>
               {" "}
               <div className="add-new-address" onClick={handleAddAddressBtn}>
-                + ADD NEW ADDRESS
+                <span>+</span> ADD NEW ADDRESS
               </div>
               <Button onClick={() => setShowPayment(true)}>PROCEED</Button>{" "}
             </>

@@ -10,6 +10,7 @@
   border-radius: 6px;
   // box-shadow: 0 0 4px #c4c4c4;
   border: 1px solid;
+  animation: login-modal 0.3s;
   .close {
     position: absolute;
     // float: left;
@@ -42,5 +43,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+  }
+}
+@keyframes login-modal {
+  from {
+    opacity: 0;
+    // transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    // transform: scaleY(1);
   }
 }

@@ -10,6 +10,10 @@ const isUserLoggedIn = (state = initialState.isUserLoggedIn, action) => {
 const user = (state = initialState.user, action) => {
     if (action.type === 'USER_LOGIN') {
         return action.value;
+    } else if (action.type === 'DEFAULT_ADDRESS') {
+        return { ...state, defaultAddress: action.value }
+    } else if (action.type === 'SET_ADDRESS') {
+        return {...state, address: {...state.address, [action.value.fullName]: action.value}};
     }
     return state;
 }
@@ -39,12 +43,6 @@ const isLoginModal = (state = initialState.isLoginModal, action) => {
     }
     return state;
 }
-// const address = (state, action) => {
-//     if (action.type === 'SET_ADDRESS') {
-//         return action.value;
-//     }
-//     return [];
-// }
 export default combineReducers({
     isUserLoggedIn,
     menu,

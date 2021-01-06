@@ -8,7 +8,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  padding: 20px 20px 20px 40px;
+  padding: 20px 20px 20px 65px;
   line-height: 1.6;
   border: 1px solid transparent;
   position: relative;
@@ -20,14 +20,9 @@
     font-size: $very-small-font;
   }
   .selectable {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid;
     position: absolute;
 
-    top: 8px;
+    top: 30px;
     left: 12px;
     &.selected {
       background-color: black;
@@ -37,4 +32,24 @@
     cursor: pointer;
     border-color: black;
   }
+}
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+/* appearance for checked radiobutton */
+input[type="radio"]:checked {
+  background-color: black;
 }

@@ -16,7 +16,7 @@ const Address = ({
   return (
     <div className="address" onClick={onAddressSelection}>
       {!hideSelectable && (
-        <div className={"selectable" + (isSelected ? " selected" : "")}></div>
+        <input className={"selectable"} type="radio" checked={isSelected} />
       )}
       <strong>{fullName}</strong>
       <div>{addressOne}</div>

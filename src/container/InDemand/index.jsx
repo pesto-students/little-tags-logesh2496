@@ -38,7 +38,7 @@ const InDemand = () => {
         </div>
         <div className="third">
           <Suggestion
-            url="/images/necklace.jpg"
+            url="/images/neck2.png"
             label="Charm necklace"
             id="All Necklace"
             onClick={onSuggestionClick}

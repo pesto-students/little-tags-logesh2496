@@ -41,7 +41,7 @@ const Footer = ({ onFooterClick }) => {
       <div>
         <header>Let’s stay in touch</header>
         <div className="subscribe">
-          <input />
+          <input placeholder='email' />
           <div>SUBSCRIBE</div>
         </div>
         <p>Keep up to date with our latest news and special offers.</p>
