@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { addToCart, openLogin } from "../../actions";
 import Carousel from "../Carousel";
 import Quantity from "../../components/Quantity";
@@ -14,15 +14,14 @@ import Loading from "../../components/Loading";
 const productUrl = "https://fakestoreapi.com/products";
 const ProductDetails = () => {
   const { isUserLoggedIn, cart } = useSelector((state) => state);
-  const { searchQuery, productId } = useParams();
+  const { productId } = useParams();
 
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState(null);
-  const [size, setSize] = useState(null);
+  const [size, setSize] = useState("M");
   const [noOfQuantity, setNoOfQuantity] = useState(1);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const history = useHistory();
   const dispatch = useDispatch();
 
   const onIncrement = () => {
@@ -50,6 +49,7 @@ const ProductDetails = () => {
   UseRouterClass();
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`${productUrl}/${productId}`)
       .then((res) => res.json())
       .then((result) => {
@@ -95,7 +95,7 @@ const ProductDetails = () => {
           <div className="price">₹ {product.price}</div>
           <div className="description">{product.description}</div>
           <div className="size">Size</div>
-          <SizeList onSizeSelection={onSizeSelection} />
+          <SizeList size={size} onSizeSelection={onSizeSelection} />
           <div className="quantity">Quantity</div>
           <Quantity
             noOfQuantity={noOfQuantity}
