@@ -15,6 +15,10 @@
       label {
         font-size: $very-small-font;
         margin-bottom: 8px;
+        span {
+          margin-left: 2px;
+          color: red;
+        }
       }
       input {
         width: 300px;

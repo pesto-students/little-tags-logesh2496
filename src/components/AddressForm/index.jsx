@@ -41,11 +41,15 @@ const AddressForm = ({ handleAddInformation }) => {
         <section>
           <div className="row">
             <div className="column">
-              <label>First Name</label>
+              <label>
+                First Name <span>*</span>
+              </label>
               <input name="firstName" required></input>
             </div>
             <div className="column">
-              <label>Address line 1</label>
+              <label>
+                Address line 1 <span>*</span>
+              </label>
               <input name="addressOne" required></input>
             </div>
           </div>
@@ -55,13 +59,17 @@ const AddressForm = ({ handleAddInformation }) => {
               <input name="lastName"></input>
             </div>
             <div className="column">
-              <label>Address line 2</label>
+              <label>
+                Address line 2 <span>*</span>
+              </label>
               <input name="addressTwo" required></input>
             </div>
           </div>
           <div className="row">
             <div className="column">
-              <label>Email ID</label>
+              <label>
+                Email ID <span>*</span>
+              </label>
               <input name="emailId" type="email" required></input>
             </div>
             <div className="column">
@@ -75,7 +83,9 @@ const AddressForm = ({ handleAddInformation }) => {
               <input name="mobileNo"></input>
             </div>
             <div className="column">
-              <label>Pin Code</label>
+              <label>
+                Pin Code <span>*</span>
+              </label>
               <input name="pincode" required></input>
             </div>
           </div>

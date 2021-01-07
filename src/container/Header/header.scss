@@ -99,7 +99,17 @@
         text-align: center;
         align-items: center;
         justify-content: center;
+        animation: cart-count 1.5s linear;
       }
     }
+  }
+}
+
+@keyframes cart-count {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
   }
 }

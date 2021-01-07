@@ -3,4 +3,30 @@
   height: 100%;
   width: 100%;
   align-items: center;
+
+  .product-img {
+    img {
+      animation: carousel-start 0.5s linear, carousel 0.5s linear 3.5s;
+    }
+  }
+}
+@keyframes carousel {
+  from {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+}
+@keyframes carousel-start {
+  from {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  to {
+    opacity: 0.5;
+    transform: rotateY(0deg);
+  }
 }
