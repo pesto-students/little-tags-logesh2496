@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { openMenu, setAsUserLoggedOut, setLogInUserInfo } from "../../actions";
+import { showAlert } from "../../components/Alert";
 import Modal from "../../components/Modal";
 import auth from "../../db/auth";
 import "./menu.scss";
@@ -38,14 +39,10 @@ const Menu = () => {
   };
 
   const onLogout = () => {
-    const isLogout = window.confirm(
-      "You will be logged out from little tags now, hit cancel to stay logged in!"
-    );
-    if (isLogout) {
-      logout();
-      dispatch(setAsUserLoggedOut());
-      dispatch(setLogInUserInfo({}));
-    }
+    logout();
+    dispatch(setAsUserLoggedOut());
+    dispatch(setLogInUserInfo({}));
+    showAlert("Thanks for shopping with us!");
   };
 
   return (

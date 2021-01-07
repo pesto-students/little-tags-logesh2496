@@ -20,9 +20,8 @@ const CartSlides = ({ id, quantity, onProductRemove }) => {
     if (newQuantity) {
       setNoOfQuantity(noOfQuantity - 1);
     } else {
-      if (window.confirm("This item will be removed from cart!")) {
-        onProductRemove(id);
-      }
+      //TODO confirm before emptying the cart;
+      onProductRemove(id);
     }
   };
 

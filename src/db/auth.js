@@ -9,6 +9,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import "firebase/database";
 import app from "./app";
+import { showAlert } from "../components/Alert";
 
 
 const auth = () => {
@@ -80,9 +81,9 @@ function signInError(error) {
     var errorCode = error.code;
     // ...
     if (errorCode === 'auth/account-exists-with-different-credential') {
-        alert('Your account already exists. Please try other sign in options.');
+        showAlert('Your account already exists. Please try other sign in options.');
     } else {
-        alert('There is some problem at server, please try again later.');
+        showAlert('There is some problem at the server, please try again later.');
     }
 }
 export default auth;

@@ -18,6 +18,7 @@ import PastOrders from "../PastOrders";
 import Cart from "../Cart";
 import Footer from "../../components/Footer";
 import createBrowserHistory from "history/createBrowserHistory";
+import Alert from "../../components/Alert";
 
 const Layout = () => {
   const {
@@ -53,6 +54,7 @@ const Layout = () => {
           </div>
           {isOpen && <Menu />}
           {isLoginModal && <Login />}
+          <Alert />
         </div>
       </div>
     </Router>

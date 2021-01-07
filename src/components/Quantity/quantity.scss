@@ -15,5 +15,8 @@
     text-align: center;
     padding: 5px;
     font-size: $small-font;
+    &.disabled {
+      opacity: 0.4;
+    }
   }
 }

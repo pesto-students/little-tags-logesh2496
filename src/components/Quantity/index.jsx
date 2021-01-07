@@ -5,7 +5,12 @@ import PropTypes from "prop-types";
 const Quantity = ({ noOfQuantity, onIncrement, onDecrement }) => {
   return (
     <div className="quantity-cal">
-      <div onClick={onDecrement}>-</div>
+      <div
+        onClick={onDecrement}
+        className={noOfQuantity === 0 ? "disabled" : ""}
+      >
+        -
+      </div>
       <div>{noOfQuantity}</div>
       <div onClick={onIncrement}>+</div>
     </div>
