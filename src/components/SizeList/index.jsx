@@ -2,19 +2,45 @@ import React from "react";
 import "./size-list.scss";
 import PropTypes from "prop-types";
 
-const SizeList = ({ onSizeSelection }) => {
+const SizeList = ({ onSizeSelection, size }) => {
   return (
     <div className="size-list">
-      <div onClick={onSizeSelection}>XS</div>
-      <div onClick={onSizeSelection}>S</div>
-      <div onClick={onSizeSelection}>M</div>
-      <div onClick={onSizeSelection}>L</div>
-      <div onClick={onSizeSelection}>XL</div>
+      <div
+        className={size == "XS" ? "selected" : ""}
+        onClick={onSizeSelection.bind(null, "XS")}
+      >
+        XS
+      </div>
+      <div
+        className={size == "S" ? "selected" : ""}
+        onClick={onSizeSelection.bind(null, "S")}
+      >
+        S
+      </div>
+      <div
+        className={size == "M" ? "selected" : ""}
+        onClick={onSizeSelection.bind(null, "M")}
+      >
+        M
+      </div>
+      <div
+        className={size == "L" ? "selected" : ""}
+        onClick={onSizeSelection.bind(null, "L")}
+      >
+        L
+      </div>
+      <div
+        className={size == "XL" ? "selected" : ""}
+        onClick={onSizeSelection.bind(null, "XL")}
+      >
+        XL
+      </div>
     </div>
   );
 };
 
 SizeList.propTypes = {
   onSizeSelection: PropTypes.func.isRequired,
+  size: PropTypes.string,
 };
 export default SizeList;

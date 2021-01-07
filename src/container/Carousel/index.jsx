@@ -31,6 +31,10 @@ const Carousel = ({ url }) => {
     };
   }, [position]);
 
+  useEffect(() => {
+    setPosition(0);
+  }, [url]);
+
   return (
     <div className="carousel">
       <img src="/icons/arrow_left.svg" alt="left" onClick={onLeftClick} />

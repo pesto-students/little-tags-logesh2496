@@ -6,7 +6,8 @@
     text-align: center;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &.selected {
       font-weight: 600;
     }
   }
