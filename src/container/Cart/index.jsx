@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { removeFromCart } from "../../actions";
 import Button from "../../components/Button";
 import useRouterClass from "../../hooks/useRouterClass";
+import useScrollIntoView from "../../hooks/useScrollIntoView";
 import CartSlides from "../CartSlides";
 import "./cart.scss";
 
@@ -16,7 +17,7 @@ const Cart = () => {
     dispatch(removeFromCart(id));
   };
   useRouterClass();
-
+  useScrollIntoView();
   const onCartProceed = () => {
     history.push("/home/address");
   };

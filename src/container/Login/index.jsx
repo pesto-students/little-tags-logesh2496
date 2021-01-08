@@ -17,7 +17,7 @@ const Login = () => {
     dispatch(setAsUserLoggedIn());
     onClose();
     dispatch(setLogInUserInfo(data));
-    history.push("/home");
+    // history.push("/home");
   };
   const onGoogleAuth = () => {
     googleAuth(onComplete);

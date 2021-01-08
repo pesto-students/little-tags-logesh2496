@@ -57,7 +57,6 @@ const ProductList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    document.firstElementChild.scrollTop = 0;
     const category = getCategoryFromQuery(searchQuery);
     fetch(`https://fakestoreapi.com/products/category/${category}`)
       .then((res) => res.json())
