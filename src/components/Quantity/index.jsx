@@ -2,12 +2,12 @@ import React from "react";
 import "./quantity.scss";
 import PropTypes from "prop-types";
 
-const Quantity = ({ noOfQuantity, onIncrement, onDecrement }) => {
+const Quantity = ({ noOfQuantity, onIncrement, onDecrement, min = 0 }) => {
   return (
     <div className="quantity-cal">
       <div
         onClick={onDecrement}
-        className={noOfQuantity === 0 ? "disabled" : ""}
+        className={noOfQuantity === min ? "disabled" : ""}
       >
         -
       </div>
@@ -21,6 +21,7 @@ Quantity.propTypes = {
   noOfQuantity: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
+  min: PropTypes.number,
 };
 
 export default Quantity;
