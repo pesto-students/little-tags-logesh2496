@@ -55,7 +55,9 @@ const CartSlides = ({ id, quantity, onProductRemove }) => {
           onDecrement={onDecrement}
         />
       </div>
-      <div className="price">₹ {product?.price * noOfQuantity}</div>
+      <div className="price">
+        ₹ {(product?.price * noOfQuantity).toFixed(2)}
+      </div>
     </div>
   );
 };

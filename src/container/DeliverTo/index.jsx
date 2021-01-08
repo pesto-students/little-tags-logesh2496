@@ -9,6 +9,7 @@ import useRouterClass from "../../hooks/useRouterClass";
 import db from "../../db";
 import PropTypes from "prop-types";
 import Payment from "../Payment";
+import useScrollIntoView from "../../hooks/useScrollIntoView";
 
 const { updateDb } = db;
 const DeliverTo = ({ showOnlySelected, location }) => {
@@ -54,6 +55,7 @@ const DeliverTo = ({ showOnlySelected, location }) => {
     setShowForm(false);
   };
   useRouterClass();
+  useScrollIntoView();
 
   useEffect(() => {}, [showForm]);
 
