@@ -29,7 +29,6 @@ const ProductDetails = () => {
   };
   const onDecrement = () => {
     const newQuantity = noOfQuantity;
-    debugger;
     if (newQuantity) {
       setNoOfQuantity(noOfQuantity - 1);
     } else {

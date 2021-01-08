@@ -38,7 +38,7 @@ const Carousel = ({ url }) => {
   return (
     <div className="carousel">
       <img src="/icons/arrow_left.svg" alt="left" onClick={onLeftClick} />
-      <ProductImage url={urls[position]} key={Math.random()} />
+      <ProductImage url={urls[position]} />
       <img src="/icons/arrow_right.svg" alt="right" onClick={onRightClick} />
     </div>
   );

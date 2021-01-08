@@ -2,36 +2,31 @@ import React from "react";
 import PastOrderSlide from "../../components/PastOrderSlide";
 import UseRouterClass from "../../hooks/useRouterClass";
 import "./past-orders.scss";
-import Suggestions from "../Suggestions";
-
-const pastOrders = [
-  {
-    name: "Faux Leather Jacket",
-    image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
-    date: "2 September 2020",
-    quantity: 1,
-    price: 1200,
-    id: 16,
-  },
-  {
-    name: "External HDD",
-    image: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg",
-    date: "2 September 2020",
-    quantity: 1,
-    price: 400,
-    id: 2,
-  },
-];
+import { useSelector } from "react-redux";
+import useScrollIntoView from "../../hooks/useScrollIntoView";
+import { useHistory } from "react-router-dom";
 
 const PastOrders = () => {
+  const pastOrders = useSelector((state) => state.pastOrders);
+  const history = useHistory();
+
   UseRouterClass();
+  useScrollIntoView();
+
+  const onOrderAgain = (id) => {
+    history.push(`/home/items/${id}`);
+  };
+
   return (
     <div className="past-orders">
       <div className="title">Your Orders</div>
       {pastOrders.map((pastOrder) => (
-        <PastOrderSlide {...pastOrder} />
+        <PastOrderSlide
+          key={pastOrder.id}
+          {...pastOrder}
+          onOrderAgain={onOrderAgain}
+        />
       ))}
-      <Suggestions />
     </div>
   );
 };

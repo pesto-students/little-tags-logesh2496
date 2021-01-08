@@ -38,3 +38,7 @@ export const updateDefaultAddress = (value) => ({
     type: 'DEFAULT_ADDRESS',
     value
 });
+export const updatePastOrders = (value) => ({
+    type: 'PAST_ORDERS',
+    value
+});
