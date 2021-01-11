@@ -10,6 +10,7 @@ import db from "../../db";
 import PropTypes from "prop-types";
 import Payment from "../Payment";
 import useScrollIntoView from "../../hooks/useScrollIntoView";
+import { showAlert } from "../../components/Alert";
 
 const { updateDb } = db;
 const DeliverTo = ({ showOnlySelected, location }) => {
@@ -23,6 +24,7 @@ const DeliverTo = ({ showOnlySelected, location }) => {
   const { address, id, defaultAddress: selectedAddressName } = useSelector(
     (state) => state.user
   );
+  const userCart = useSelector((state) => state.cart);
   const [showPayment, setShowPayment] = useState(false);
 
   const getUserAddress = () => {
@@ -35,7 +37,6 @@ const DeliverTo = ({ showOnlySelected, location }) => {
     }
     return [];
   };
-
   const userAddresses = getUserAddress();
 
   const dispatch = useDispatch();
@@ -58,6 +59,18 @@ const DeliverTo = ({ showOnlySelected, location }) => {
   useScrollIntoView();
 
   useEffect(() => {}, [showForm]);
+
+  const onProceedClick = () => {
+    if (!userAddresses.length) {
+      showAlert("Please add an address to continue!");
+    } else if (!selectedAddressName) {
+      showAlert("Please select a default address to continue!");
+    } else if (!userCart?.length) {
+      showAlert("Please add items to cart to continue!");
+    } else {
+      setShowPayment(true);
+    }
+  };
 
   if (showPayment) {
     return <Payment />;
@@ -88,7 +101,7 @@ const DeliverTo = ({ showOnlySelected, location }) => {
               <div className="add-new-address" onClick={handleAddAddressBtn}>
                 <span>+</span> ADD NEW ADDRESS
               </div>
-              <Button onClick={() => setShowPayment(true)}>PROCEED</Button>{" "}
+              <Button onClick={onProceedClick}>PROCEED</Button>{" "}
             </>
           )}
         </>

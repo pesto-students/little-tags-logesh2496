@@ -13,12 +13,12 @@
   div {
     margin-top: 20px;
     background-color: white;
-    width: 600px;
-    height: 200px;
+    width: 400px;
+    height: 150px;
     border-radius: 6px;
-    padding: 40px;
+    padding: 30px;
     font-size: $small-font;
-    color: #c4c4c4;
+    color: grey;
     border: 2px solid;
 
     display: flex;
@@ -27,6 +27,8 @@
     animation: alert-drop 0.2s linear;
     button {
       align-self: flex-end;
+      width: 95px;
+      height: 35px;
     }
   }
 }

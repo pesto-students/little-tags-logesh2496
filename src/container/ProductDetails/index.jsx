@@ -29,10 +29,8 @@ const ProductDetails = () => {
   };
   const onDecrement = () => {
     const newQuantity = noOfQuantity;
-    if (newQuantity) {
+    if (newQuantity > 1) {
       setNoOfQuantity(noOfQuantity - 1);
-    } else {
-      setNoOfQuantity(0);
     }
   };
   const onSizeSelection = (selectedSize) => {
@@ -101,6 +99,7 @@ const ProductDetails = () => {
             noOfQuantity={noOfQuantity}
             onIncrement={onIncrement}
             onDecrement={onDecrement}
+            min={1}
           />
           <div className="cart" onClick={onAddToCart}>
             <img src="/icons/shopping_cart.svg" alt="" />
