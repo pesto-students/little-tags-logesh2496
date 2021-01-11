@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.cart-wrapper {
+  margin: 20px 40px;
+  margin-top: 60px;
+  height: 100%;
+  header {
+    margin-left: 120px;
+    font-weight: 600;
+    font-size: $sub-header-font;
+    margin-bottom: 40px;
+  }
+  .proceed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 30px;
+  }
+  .empty {
+    font-size: $medium-font;
+    text-align: center;
+    color: #c4c4c4;
+    position: relative;
+    top: 200px;
+  }
+}

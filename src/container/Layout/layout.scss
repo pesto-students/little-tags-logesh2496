@@ -1,0 +1,16 @@
+.layout {
+  height: 100%;
+
+  .home-page {
+    height: 100%;
+    position: relative;
+
+    .product-header {
+      background-color: black;
+    }
+    .home-footer {
+      height: 320px;
+      background-color: #32353c;
+    }
+  }
+}

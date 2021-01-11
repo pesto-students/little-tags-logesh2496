@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.closet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  img {
+    object-fit: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.2rem;
+
+    .sub-title {
+      width: 100%;
+      text-align: center;
+      font-size: $sub-header-font;
+      span {
+        display: inline-block;
+        width: 15%;
+        background: white;
+        border: 0.5px solid white;
+        margin: 0 10px 8px;
+      }
+    }
+  }
+}

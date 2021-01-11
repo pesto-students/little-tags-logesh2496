@@ -1,0 +1,37 @@
+@import "../../styles/variables.scss";
+
+.address-form {
+  width: 65%;
+  .row {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+    .column {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      label {
+        font-size: $very-small-font;
+        margin-bottom: 8px;
+        span {
+          margin-left: 2px;
+          color: red;
+        }
+      }
+      input {
+        width: 300px;
+        height: 40px;
+        border-radius: 6px;
+        border-width: 1px;
+      }
+    }
+  }
+  .submit-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,55 @@
+@import "../../styles/variables.scss";
+
+.address {
+  width: 350px;
+  margin-bottom: 25px;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px 20px 20px 65px;
+  line-height: 1.6;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: auto;
+  strong {
+    font-size: $medium-font;
+  }
+  div {
+    font-size: $very-small-font;
+  }
+  .selectable {
+    position: absolute;
+
+    top: 30px;
+    left: 12px;
+    &.selected {
+      background-color: black;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    border-color: black;
+  }
+}
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+/* appearance for checked radiobutton */
+input[type="radio"]:checked {
+  background-color: black;
+}

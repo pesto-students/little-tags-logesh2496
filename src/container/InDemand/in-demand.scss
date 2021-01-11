@@ -1,0 +1,26 @@
+@import "../../styles/variables.scss";
+
+.demand-wrapper {
+  .header {
+    text-align: center;
+    font-size: $big-font;
+    font-weight: 600;
+    margin: 30px 0;
+  }
+  .in-demand {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    // flex-wrap: wrap;
+
+    .first {
+      width: 360px;
+      height: 50%;
+    }
+    .second,
+    .third {
+      width: 250px;
+      height: 100%;
+    }
+  }
+}

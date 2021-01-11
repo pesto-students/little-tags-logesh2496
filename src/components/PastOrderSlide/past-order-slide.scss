@@ -1,0 +1,39 @@
+@import "../../styles/variables.scss";
+
+.past-order-slide {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin: 30px 0;
+  .loading {
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image {
+    width: 100px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80px;
+    width: 40%;
+    strong {
+      font-size: $medium-font;
+    }
+    .price {
+      font-size: $small-font;
+    }
+    .date {
+      // color: #c4c4c4;
+    }
+    .order-btn {
+      width: 30%;
+    }
+  }
+}

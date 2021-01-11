@@ -1,0 +1,115 @@
+@import "../../styles/variables.scss";
+
+.header-area {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  transition: background-color 0.3s;
+  &.scrolled {
+    background-color: rgb(0, 0, 0);
+  }
+}
+.home-header {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  font-size: $medium-font;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  .menu-icon {
+    margin-left: 5px;
+    transition: transform 0.3s;
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+  strong {
+    margin-left: 30px;
+    cursor: pointer;
+  }
+  .search-area {
+    height: 70%;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    width: 50%;
+    label {
+      display: flex;
+      align-items: center;
+    }
+    &:focus-within {
+      img {
+        transform: rotate(90deg);
+      }
+    }
+    img {
+      transition: transform 0.3s ease-in-out;
+      margin-right: 5px;
+    }
+    input {
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      border: unset;
+    }
+  }
+  .user-area {
+    width: 20%;
+    margin-left: auto;
+    display: flex;
+    .login-signup {
+      font-size: $small-font;
+      cursor: pointer;
+    }
+    .person {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: $small-font;
+
+      img {
+        border-radius: 50%;
+        border: 1px solid white;
+        padding: 1px;
+        margin-right: 10px;
+      }
+    }
+    .cart {
+      margin-right: 25px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      .cart-count {
+        position: absolute;
+        top: 0px;
+        left: 100%;
+        font-size: 10px;
+        background-color: red;
+        width: 14px;
+        height: 14px;
+        padding: 2px;
+        border-radius: 50%;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        animation: cart-count 1.5s linear;
+      }
+    }
+  }
+}
+
+@keyframes cart-count {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
